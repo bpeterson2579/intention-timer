@@ -14,15 +14,29 @@
       <h2 class="minor-heading">New Activity</h2>
       <section class="input-box" id="input-box">
         <section class="category-icon" id="category-icon">
-          <img class="icons" src="./assets/study.svg">
-          <img class="icons" src="./assets/exercise.svg">
-          <img class="icons" src="./assets/meditate.svg">
+          <h4>Select a category:</h4>
+          <button class="activity-button" id="study-button"><img class="icons" src="./assets/study.svg">Study</button>
+          <button class="activity-button" id="meditate-button"><img class="icons" src="./assets/meditate.svg">Meditate</button>
+          <button class="activity-button" id="exercise-button"><img class="icons" src="./assets/exercise.svg">Exercise</button>
         </section>
         <section class="specific-goal" id="specific-goal">
+          <form>
+            <label>What would you like to accomplish during this time?</label>
+            <input class="user-goal" type="text" id="goal">
+            <label class="time-goals">Minutes</label>
+            <input class="input-goals" type="text" id="minutes">
+            <label class="time-goals">Seconds</label>
+            <input class="input-goals" type="text" id="seconds">
+          </form>
+        </section>
+        <section class="start-activity-section" id="start-activity-section">
+          <button class="start-activity-button" id="start-activity-section">START ACTIVITY</button>
         </section>
       </section>
     </section>
     <section class="past-activities" id="past-activities">
+      <h2>Past Activities</h2>
+      <p class="activities-logged">You haven't logged any activities yet. Complete the form to the left to get started!</p>
     </section>
   </body>
   <script type="text/javascript" src="main.js"></script>
