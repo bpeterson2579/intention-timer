@@ -1,12 +1,86 @@
  html, body {
-  position: relative;
-  margin: 0;
-  background-color: #26222D;
   font-family: 'Montserrat';
   color: #CBC9CF
 }
 
-.body-class {
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 55px;
+  font-family: 'Montserrat';
+  background-color: #46424D;
+}
+
+.icons {
+  height: 3vh;
+  width: 3vw;
+
+}
+
+main {
+  display: flex;
+  background-color: #26222D;
+}
+
+.new-activity {
+  background-color: transparent;
+}
+
+.category-icon {
+  height: 100px;
+  width: auto;
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 50px;
+}
+
+.specific-goal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  height: 200px;
+  margin: 0px;
+  pad
+}
+
+.start-activity-button {
+
+}
+
+.input-box {
+  background-color: #46424D;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+}
+
+.select-category {
+  display: flex;
+  align-self: baseline;
+  margin-left: 8vw;
+  margin-top: 10vh;
+
+}
+
+.activity-button {
+  background-color: #46424D;
+  border: 2px solid #CBC9CF;
+  color: #CBC9CF;
+  border-radius: 0.5vh;
+  width: 10vw;
+  height: 9vh;
+  margin: 1vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2vh;
+}
+
+/*.body-class {
   display: flex;
   background-color: #2B2733;
   justify-content: center;
@@ -171,4 +245,4 @@ header {
   width: 25vw;
   justify-content: center;
   align-items: center;
-}
+} */
