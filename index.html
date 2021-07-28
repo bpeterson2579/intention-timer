@@ -9,9 +9,9 @@
     </title>
   </head>
   <body class="body-class">
-    <header class="title" id="title">INTENTION TIMER</header>
+  <header class="title" id="title">INTENTION TIMER</header>
+  <main>
     <section class="new-activity" id="new-activity">
-      <section>
         <h2 class="minor-heading">New Activity</h2>
          <section class="input-box" id="input-box">
             <h4 class="select-category">Select a category:</h4>
@@ -22,22 +22,26 @@
             </section>
             <section class="specific-goal" id="specific-goal">
               <form>
-              <label class="goals">What would you like to accomplish during this time?</label>
-              <input class="input-goals" type="text" id="goal">
-              <label class="min-goals">Minutes</label>
-              <input class="input-goals" type="text" id="minutes">
-              <label class="sec-goals">Seconds</label>
-              <input class="input-goals" type="text" id="seconds">
-              </form>
+               <div>
+                  <label class="goals">What would you like to accomplish during this time?</label>
+                  <input class="input-goals" type="text" id="goal">
+                </div>
+                <div>
+                  <label class="min-goals">Minutes</label>
+                  <input class="input-goals" type="text" id="minutes">
+                  <label class="sec-goals">Seconds</label>
+                  <input class="input-goals" type="text" id="seconds">
+                  </form>
+                </div>
             </section>
             <button class="start-activity-button" id="start-activity-section">START ACTIVITY</button>
         </section>
-      </section>
     </section>
     <section class="past-activities" id="past-activities">
       <h2 class="minor-heading">Past Activities</h2>
       <p class="activities-logged">You haven't logged any activities yet. Complete the form to the left to get started!</p>
     </section>
+  </main>
   </body>
   <script type="text/javascript" src="main.js"></script>
   <script type="text/javascript" src="Activity.js"></script>
