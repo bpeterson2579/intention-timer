@@ -1,18 +1,25 @@
- html {
+ html, body {
+  position: relative;
+  margin: 0;
   background-color: #26222D;
+  font-family: 'Montserrat';
   color: #CBC9CF
 }
+
 .body-class {
   display: flex;
   background-color: #2B2733;
   justify-content: center;
 }
 
-.header {
-  height: 5vh;
-  /* background-color: black; */
+header {
+  position: absolute;
+  width: 100vw;
+  height: 7vh;
   display: flex;
   justify-content: center;
+  align-items: center;
+  background-color: #46424D;
 }
 
 .icons {
@@ -22,8 +29,8 @@
 
 .select-category {
   position: absolute;
-  top: 1vh;
-  left: 1.2vw;
+  top: 2vh;
+  left: 6vw;
   display: flex;
   justify-content: center;
 }
@@ -34,7 +41,7 @@
   left: 5vw;
   display: flex;
   justify-content: space-between;
-  width: 30vw;
+  width: 40vw;
 }
 
 .specific-goal {
@@ -59,11 +66,11 @@
 }
 
 .new-activity {
-  background-color: black;
+  background-color: transparent;
   position: absolute;
   top: 7vh;
   left: 1vw;
-  right: 40.2vw;
+  right: 40.3vw;
   height: 80vh;
   margin-left: 0;
 }
@@ -79,11 +86,89 @@
 }
 
 .past-activities {
-  background-color: black;
+  background-color: transparent;
   position: absolute;
   top: 7vh;
   right: 2vw;
   left: 60vw;
   width: 49vw;
   height: 80vh;
+  display: flex;
+  justify-content: center;
+}
+
+.input-goals {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #CBC9CF;
+}
+
+.goals {
+  position: absolute;
+  left: 1vw;
+  top: 3vh;
+  font-size: 2.25vh;
+}
+
+#goal {
+  position: absolute;
+  left: 1vw;
+  top: 6vh;
+  width: 38vw;
+}
+
+.min-goals {
+  position: absolute;
+  left: 1vw;
+  top: 18vh;
+  font-size: 2.25vh;
+}
+
+#minutes {
+  position: absolute;
+  left: 1vw;
+  top: 20vh;
+}
+
+.sec-goals {
+  position: absolute;
+  left: 25vw;
+  top: 18vh;
+  font-size: 2.25vh;
+
+}
+
+#seconds {
+  position: absolute;
+  left: 25vw;
+  top: 20vh;
+}
+
+.activity-button {
+  background-color: #46424D;
+  border: 1px solid #CBC9CF;
+  color: #CBC9CF;
+  border-radius: 0.5vh;
+  width: 15vw;
+  height: 10vh;
+  margin: 1vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.minor-heading {
+  position: absolute;
+  left: 1vw;
+}
+
+.activities-logged {
+  display: flex;
+  position: absolute;
+  top: 8vh;
+  left: 5vw;
+  width: 25vw;
+  justify-content: center;
+  align-items: center;
 }
