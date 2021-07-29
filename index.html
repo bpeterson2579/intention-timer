@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./styles.css">
-    <link href="https://fonts.google.com/?query=mont&selection.family=Montserrat:300,400" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
     <title>
       INTENTION TIMER
     </title>
@@ -22,24 +24,35 @@
             </section>
             <section class="specific-goal" id="specific-goal">
               <form>
-               <div>
-                  <label class="goals">What would you like to accomplish during this time?</label>
+               <div class="goals">
+                  <label>What would you like to accomplish during this time?</label>
                   <input class="input-goals" type="text" id="goal">
                 </div>
-                <div>
-                  <label class="min-goals">Minutes</label>
-                  <input class="input-goals" type="text" id="minutes">
-                  <label class="sec-goals">Seconds</label>
-                  <input class="input-goals" type="text" id="seconds">
-                  </form>
+                <div class="minutes-seconds">
+                  <div>
+                    <label class="min-goals">Minutes</label>
+                    <input class="input-goals" type="text" id="minutes">
+                  </div>
+                  <div>
+                    <label class="sec-goals">Seconds</label>
+                    <input class="input-goals" type="text" id="seconds">
+                  </div>
                 </div>
+                <section class="submit-button">
+                  <input type="submit" class="start-activity-button" id="start-activity-section" value="START ACTIVITY">
+                </section>
+              </form>
             </section>
-            <button class="start-activity-button" id="start-activity-section">START ACTIVITY</button>
-        </section>
+          </section>
     </section>
-    <section class="past-activities" id="past-activities">
-      <h2 class="minor-heading">Past Activities</h2>
-      <p class="activities-logged">You haven't logged any activities yet. Complete the form to the left to get started!</p>
+    <section class="past-activities-title" id="past-activities">
+      <section class="past-text">
+        <p class="mayor-heading">Past Activities</p>
+      </section>
+      <section class="past-activities">  
+        <p class="activities-logged">You haven't logged any activities yet.</p>
+        <p class="activities-logged">Complete the form to the left to get started!</p>
+      </section>
     </section>
   </main>
   </body>

@@ -1,38 +1,85 @@
- html, body {
-  font-family: 'Montserrat';
-  color: #CBC9CF
+ html {
+  font-family: 'Montserrat', sans-serif;
+  color: #CBC9CF;
+  width: 100vw;
+  height: 100vh;
+}
+
+body {
+  background-color: #46424D;
 }
 
 header {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 55px;
+  height: 6vh;
   font-family: 'Montserrat';
   background-color: #46424D;
+  /* border: 2px solid red; */
+  position: relative;
+  top: 0;
+  font-size: 3vh;
 }
 
+.minor-heading {
+  margin-left: 2vw;
+}
+
+.activities-logged {
+  margin-left: 2vw;
+}
 .icons {
   height: 3vh;
   width: 3vw;
+}
 
+.past-activities {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 10vh;
+}
+
+.past-activities-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.mayor-heading {
+  font-size: 2.8vh;
+  margin-left: 1vw;
+}
+
+.past-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-left: 2px solid #46424D;
 }
 
 main {
   display: flex;
   background-color: #26222D;
+  width: 100vw;
+  height: 100vh;
 }
 
 .new-activity {
   background-color: transparent;
+  width: 60vw;
+  height: 90vh;
 }
 
 .category-icon {
-  height: 100px;
+  height: 10vh;
   width: auto;
   display: flex;
   justify-content: space-evenly;
-  margin-bottom: 50px;
+  align-items: center;
+  margin-bottom: 10vh;
 }
 
 .specific-goal {
@@ -44,24 +91,26 @@ main {
   margin: 0px;
 }
 
-.start-activity-button {
-
-}
-
 .input-box {
   background-color: #46424D;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-direction: column;
-
+  width: 56vw;
+  height: 83vh;
+  margin-bottom: 3vh;
+  margin-left: 2vw;
+  border-radius: 0.5vw;
 }
 
 .select-category {
   display: flex;
-  align-self: baseline;
-  margin-left: 8vw;
-  margin-top: 10vh;
-
+  align-self: flex-start;
+  margin-left: 6vw;
+  margin-top: 3vh;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  font-size: 2vh;
 }
 
 .activity-button {
@@ -79,6 +128,73 @@ main {
   font-size: 2vh;
 }
 
+.past-activities {
+  width: 35vw;
+  height: 98vh;
+  background-color: transparent;
+  border-left: 2px solid #46424D;
+}
+
+.specific-goal {
+  margin-left: 6vw;
+  font-size: 2vh;
+  display: flex;
+  flex-direction:column;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+.goals > input {
+  width: 43vw;
+  margin-top: 1.8vh;
+  margin-bottom: 1vh;
+}
+
+.goals {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2vh;
+  align-items: stretch;
+}
+
+.input-goals {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #CBC9CF;
+}
+
+.minutes-seconds {
+  display: flex;
+  align-items: center;
+}
+
+.minutes-seconds > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-content: space-around;
+  margin-right: 10vw;
+}
+
+#minutes, #seconds {
+  width: 15vw;
+  margin-top: 1.8vh;
+}
+
+.submit-button {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 5vh;
+  margin-right: 6vw;
+}
+
+.start-activity-button {
+  height: 5vh;
+  width: 10vw;
+  border-radius: 1vh;
+  color: #46424D;
+  font-size: 1.8vh;
+}
 /*.body-class {
   display: flex;
   background-color: #2B2733;
