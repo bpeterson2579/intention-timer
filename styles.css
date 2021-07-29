@@ -19,6 +19,7 @@ header {
   /* border: 2px solid red; */
   position: relative;
   top: 0;
+  font-size: 3vh;
 }
 
 .minor-heading {
@@ -107,6 +108,8 @@ main {
   align-self: flex-start;
   margin-left: 6vw;
   margin-top: 3vh;
+  margin-bottom: 0;
+  padding-bottom: 0;
   font-size: 2vh;
 }
 
@@ -130,6 +133,62 @@ main {
   height: 98vh;
   background-color: transparent;
   border-left: 2px solid #46424D;
+}
+
+.specific-goal {
+  margin-left: 6vw;
+  font-size: 2vh;
+  display: flex;
+  flex-direction:column;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+.goals > input {
+  width: 43vw;
+  margin-top: 1.8vh;
+  margin-bottom: 1vh;
+}
+
+.goals {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2vh;
+  align-items: stretch;
+}
+
+.input-goals {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #CBC9CF;
+}
+
+.minutes-seconds {
+  display: flex;
+  /* flex-direction: column; */
+  order: 2;
+  /* flex-wrap: nowrap; */
+  align-self: stretch;
+}
+
+.minutes-seconds > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-content: space-around;
+  margin-right: 10vw;
+}
+
+#minutes, #seconds {
+  width: 15vw;
+  margin-top: 1.8vh;
+}
+
+.submit-button {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 5vh;
+  margin-right: 6vw;
 }
 
 /*.body-class {
