@@ -165,10 +165,7 @@ main {
 
 .minutes-seconds {
   display: flex;
-  /* flex-direction: column; */
-  order: 2;
-  /* flex-wrap: nowrap; */
-  align-self: stretch;
+  align-items: center;
 }
 
 .minutes-seconds > div {
@@ -191,6 +188,13 @@ main {
   margin-right: 6vw;
 }
 
+.start-activity-button {
+  height: 5vh;
+  width: 10vw;
+  border-radius: 1vh;
+  color: #46424D;
+  font-size: 1.8vh;
+}
 /*.body-class {
   display: flex;
   background-color: #2B2733;
