@@ -16,7 +16,6 @@ header {
   height: 6vh;
   font-family: 'Montserrat';
   background-color: #46424D;
-  /* border: 2px solid red; */
   position: relative;
   top: 0;
   font-size: 3vh;
@@ -77,25 +76,28 @@ main {
   height: 10vh;
   width: auto;
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
   align-items: center;
-  margin-bottom: 10vh;
 }
 
 .specific-goal {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   justify-content: center;
-  height: 200px;
-  margin: 0px;
+  align-items: stretch;
+  height: 20vh;
+  width: 40vw;
+  margin-left: 0;
+  margin-bottom: 10vh;
+  font-size: 2vh;
 }
 
 .input-box {
   background-color: #46424D;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   flex-direction: column;
+  align-items: center;
   width: 56vw;
   height: 83vh;
   margin-bottom: 3vh;
@@ -106,8 +108,7 @@ main {
 .select-category {
   display: flex;
   align-self: flex-start;
-  margin-left: 6vw;
-  margin-top: 3vh;
+  margin-left: 1.2vw;
   margin-bottom: 0;
   padding-bottom: 0;
   font-size: 2vh;
@@ -128,20 +129,21 @@ main {
   font-size: 2vh;
 }
 
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 45vw;
+}
+
+.input-goals {
+  height: 5vh;
+}
 .past-activities {
   width: 35vw;
   height: 98vh;
   background-color: transparent;
   border-left: 2px solid #46424D;
-}
-
-.specific-goal {
-  margin-left: 6vw;
-  font-size: 2vh;
-  display: flex;
-  flex-direction:column;
-  align-items: stretch;
-  justify-content: flex-start;
 }
 
 .goals > input {
@@ -161,203 +163,46 @@ main {
   background: transparent;
   border: none;
   border-bottom: 1px solid #CBC9CF;
+  width: 15vw;
+}
+
+.input-specific-goal {
+  width: 40vw;
+  background: transparent;
+  margin-top: 2vh;
+  border: none;
+  border-bottom: 1px solid #CBC9CF;
 }
 
 .minutes-seconds {
   display: flex;
-  align-items: center;
+  justify-content: space-between;
 }
 
 .minutes-seconds > div {
   display: flex;
   flex-direction: column;
-  justify-content: stretch;
-  align-content: space-around;
-  margin-right: 10vw;
+  align-items: flex-start;
+  width: 15vw;
 }
 
-#minutes, #seconds {
-  width: 15vw;
-  margin-top: 1.8vh;
+.minutes {
+  display: flex;
+  flex-direction: column;
 }
+
 
 .submit-button {
   display: flex;
   justify-content: flex-end;
   margin-top: 5vh;
-  margin-right: 6vw;
+  margin-right: 0;
 }
 
 .start-activity-button {
   height: 5vh;
-  width: 10vw;
+  width: 12vw;
   border-radius: 1vh;
   color: #46424D;
   font-size: 1.8vh;
 }
-/*.body-class {
-  display: flex;
-  background-color: #2B2733;
-  justify-content: center;
-}
-
-header {
-  position: absolute;
-  width: 100vw;
-  height: 7vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #46424D;
-}
-
-.icons {
-  height: 5vh;
-  width: 5vw;
-}
-
-.select-category {
-  position: absolute;
-  top: 2vh;
-  left: 6vw;
-  display: flex;
-  justify-content: center;
-}
-
-.category-icon {
-  position: absolute;
-  top: 9vh;
-  left: 5vw;
-  display: flex;
-  justify-content: space-between;
-  width: 40vw;
-}
-
-.specific-goal {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-self: flex-start;
-  position: absolute;
-  top: 25vh;
-  left: 5vw;
-  right: 5vw;
-  bottom: 25vh;
-  height: 40hv;
-  width: 30vw;
-  font-size: 2vh;
-}
-
-.start-activity-button {
-  position: absolute;
-  bottom: 10vh;
-  left: 40vw;
-}
-
-.new-activity {
-  background-color: transparent;
-  position: absolute;
-  top: 7vh;
-  left: 1vw;
-  right: 40.3vw;
-  height: 80vh;
-  margin-left: 0;
-}
-
-.input-box {
-  background-color: #46424D;
-  position: absolute;
-  top: 7vh;
-  left: 1vw;
-  right: 1vw;
-  bottom: 2.5vh;
-  border-radius: 1vh;
-}
-
-.past-activities {
-  background-color: transparent;
-  position: absolute;
-  top: 7vh;
-  right: 2vw;
-  left: 60vw;
-  width: 49vw;
-  height: 80vh;
-  display: flex;
-  justify-content: center;
-}
-
-.input-goals {
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid #CBC9CF;
-}
-
-.goals {
-  position: absolute;
-  left: 1vw;
-  top: 3vh;
-  font-size: 2.25vh;
-}
-
-#goal {
-  position: absolute;
-  left: 1vw;
-  top: 6vh;
-  width: 38vw;
-}
-
-.min-goals {
-  position: absolute;
-  left: 1vw;
-  top: 18vh;
-  font-size: 2.25vh;
-}
-
-#minutes {
-  position: absolute;
-  left: 1vw;
-  top: 20vh;
-}
-
-.sec-goals {
-  position: absolute;
-  left: 25vw;
-  top: 18vh;
-  font-size: 2.25vh;
-
-}
-
-#seconds {
-  position: absolute;
-  left: 25vw;
-  top: 20vh;
-}
-
-.activity-button {
-  background-color: #46424D;
-  border: 1px solid #CBC9CF;
-  color: #CBC9CF;
-  border-radius: 0.5vh;
-  width: 15vw;
-  height: 10vh;
-  margin: 1vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.minor-heading {
-  position: absolute;
-  left: 1vw;
-}
-
-.activities-logged {
-  display: flex;
-  position: absolute;
-  top: 8vh;
-  left: 5vw;
-  width: 25vw;
-  justify-content: center;
-  align-items: center;
-} */
