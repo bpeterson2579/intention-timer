@@ -6,33 +6,41 @@ class Activity {
     this.seconds = seconds,
     this.completed = false,
     this.id = Date.now(),
-  }
+  };
+
   countdown(this.minutes, this.seconds) {
-<<<<<<< HEAD
-    var x = setInterval(function() {
-      var min = Math.floor
-=======
-    setInterval(function() {
-      min = parseInt(timer / 60, 10);
-      sec = parseInt(timer % 60, 10);
-
-      min = min < 10 ? "0" + min : min;
-      sec = sec < 10 ? "0" + sec : sec;
-
+    var timeDisplay = document.querySelector('#countDown');
+    var min = this.minutes;
+    var totalSec = (min * 60) + this.seconds;
     
->>>>>>> 7e21760f4e2c99d867b9804ccd36f475b546cba3
-    }
-  }, 1000);
+    setInterval(timer, 1000);
+
+    function timer() {
+      var min = Math.floor(totalSec / 60);
+      var sec = totalSec % 60;
+
+      if (sec < 0) {
+        return;
+      }; 
+
+      if (sec < 10) {
+        sec = "0" + sec 
+      }else {
+        sec
+      };
+
+      timeDisplay.innerText = `${min}:${sec}`;
+      totalSec--
+    };
+  };
+
   markComplete() {
+        
+  };
 
-  }
   saveToStorage() {
-<<<<<<< HEAD
     
-=======
-
->>>>>>> 7e21760f4e2c99d867b9804ccd36f475b546cba3
-  }
+  };
 }
-
+    
 module.exports = Activity;
