@@ -66,18 +66,44 @@ function changeBtn(event) {
 // Helper Functions //
 
 function showCustomMessage() {
+  var error = document.querySelector('.error-message');
+  var errorMin = document.querySelector('#minError');
+  var errorSec = document.querySelector('#secError');
 
-    if (!goalInput.value) {
-        goalInput.setCustomValidity('A description is required.');
-    } else {
-        goalInput.setCustomValidity('');
-    };
+  if (!goalInput.value) {
+    error.classList.remove('hidden');
+  }
+
+  if (!minutesInput.value) {
+    errorMin.classList.remove('hidden');
+  }
+
+  if (!secondsInput.value) {
+    errorSec.classList.remove('hidden');
+  }
 };
+
+var inputMin = document.querySelector('#minutes');
+var inputSec = document.querySelector('#seconds');
+var invalidInput = ['-', '+', 'e'];
+
+inputMin.addEventListener("keydown", function(event) {
+  if (invalidInput.includes(event.key)) {
+    event.preventDefault();
+  }
+});
+
+inputSec.addEventListener("keydown", function(event) {
+  if (invalidInput.includes(event.key)) {
+    event.preventDefault();
+  }
+});
 
 function updateDataModel(category) {
   var newActivity = new Activity(category, goalsInput.value, minutesInput.value, secondsInput.value);
   pastActivities.push(newActivity);
 };
+
 /*
     PSEUDOCODE
 
