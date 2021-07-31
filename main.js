@@ -6,6 +6,7 @@ var minutesInput = document.querySelector("#minutes");
 var secondsInput = document.querySelector("#seconds");
 var activityBtn = document.querySelector(".start-activity-section");
 var submitBtn = document.querySelector('#start-activity-section');
+var buttons = document.querySelectorAll('button');
 
 var pastActivities = [];
 
@@ -14,18 +15,20 @@ var pastActivities = [];
 studyBtn.addEventListener('click', changeBtn);
 meditateBtn.addEventListener('click', changeBtn);
 exerciseBtn.addEventListener('click', changeBtn);
-submitBtn.addEventListener('click', showCustomMessage);
+submitBtn.addEventListener('click', submitForm);
 
 //Event Handlers
 
-function showCustomMessage() {
-    
-    if (goalInput.value) {
-        goalInput.setCustomValidity('A description is required.');
-    } else {
-        goalInput.setCustomValidity('');
+function submitForm(event) {
+  event.preventDefault();
+  showCustomMessage();
+  for (var i = 0; i < buttons.length; i++) {
+    if (buttons[i].checked) {
+      var category = buttons[i].name;
     };
-}
+  };
+  updateDataModel(category);
+};
 
 function changeBtn(event) {
     event.preventDefault();
@@ -41,7 +44,7 @@ function changeBtn(event) {
         studyBtn.classList.add('active-study');
         meditateBtn.classList.remove('active-meditate');
         exerciseBtn.classList.remove('active-exercise');
-    }; 
+    };
     if (event.target.id === "meditate-button") {
         meditateImg.src = "./assets/meditate-active.svg";
         exerciseImg.src = "./assets/exercise.svg";
@@ -49,7 +52,7 @@ function changeBtn(event) {
         meditateBtn.classList.add('active-meditate');
         studyBtn.classList.remove('active-study');
         exerciseBtn.classList.remove('active-exercise');
-    }; 
+    };
     if (event.target.id === "exercise-button") {
         exerciseImg.src = "./assets/exercise-active.svg";
         meditateImg.src = "./assets/meditate.svg";
@@ -60,7 +63,21 @@ function changeBtn(event) {
     };
 };
 
+// Helper Functions //
 
+function showCustomMessage() {
+
+    if (!goalInput.value) {
+        goalInput.setCustomValidity('A description is required.');
+    } else {
+        goalInput.setCustomValidity('');
+    };
+};
+
+function updateDataModel(category) {
+  var newActivity = new Activity(category, goalsInput.value, minutesInput.value, secondsInput.value);
+  pastActivities.push(newActivity);
+};
 /*
     PSEUDOCODE
 
@@ -87,7 +104,6 @@ function changeBtn(event) {
         Hide form
         Create an html element to update the section and show the timer.
         Create a css class to style the timer as the comp ask.
-    
+
     6. If the start activity button is clicked without having all 4 inputs filled, the user will receive an error but will not lose any information that was provided.
 */
-

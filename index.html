@@ -17,26 +17,26 @@
         <h2 class="minor-heading">New Activity</h2>
          <section class="input-box" id="input-box">
             <div class="category-icon" id="category-icon">
-              <div class="select-category"><h4 class="select-category">Select a category:</h4></div> 
+              <div class="select-category"><h4 class="select-category">Select a category:</h4></div>
               <div class="buttons">
-              <button class="study-button" id="study-button"><img class="icons" id="studyBtn" src="./assets/study.svg">Study</button>
-              <button class="meditate-button" id="meditate-button"><img class="icons" id="meditateBtn" src="./assets/meditate.svg">Meditate</button>
-              <button class="exercise-button" id="exercise-button"><img class="icons" id="exerciseBtn" src="./assets/exercise.svg">Exercise</button>
+              <button class="study-button" id="study-button" name="study"><img class="icons" id="studyBtn" src="./assets/study.svg">Study</button>
+              <button class="meditate-button" id="meditate-button" name="meditate"><img class="icons" id="meditateBtn" src="./assets/meditate.svg">Meditate</button>
+              <button class="exercise-button" id="exercise-button" name="exercise"><img class="icons" id="exerciseBtn" src="./assets/exercise.svg">Exercise</button>
               </div>
             </div>
-            <form> 
+            <form>
             <div class="specific-goal" id="specific-goal">
               <label>What would you like to accomplish during this time?</label>
-              <input class="input-specific-goal" type="text" id="goal">
+              <input class="input-specific-goal" type="text" id="goal" required>
             </div>
             <div class="minutes-seconds">
               <div class="minutes">
-              <label class="label-goals">Minutes</label>
-              <input class="input-goals" type="number" min="0" id="minutes" required>
+                <label class="label-goals">Minutes</label>
+                <input class="input-goals" type="number" min="0" id="minutes" required>
               </div>
               <div class="minutes">
-              <label class="label-goals">Seconds</label>
-              <input class="input-goals" type="number" min="0" max="59" id="seconds" required>
+                <label class="label-goals">Seconds</label>
+                <input class="input-goals" type="number" min="0" max="59" id="seconds" required>
               </div>
             </div>
             <div class="submit-button">
@@ -49,7 +49,7 @@
       <section class="past-text">
         <p class="mayor-heading">Past Activities</p>
       </section>
-      <section class="past-activities">  
+      <section class="past-activities">
         <p class="activities-logged">You haven't logged any activities yet.</p>
         <p class="activities-logged">Complete the form to the left to get started!</p>
       </section>

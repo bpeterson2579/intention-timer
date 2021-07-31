@@ -6,13 +6,13 @@ class Activity {
     this.seconds = seconds,
     this.completed = false,
     this.id = Date.now(),
-  };
+  } 
 
   countdown(this.minutes, this.seconds) {
     var timeDisplay = document.querySelector('#countDown');
     var min = this.minutes;
     var totalSec = (min * 60) + this.seconds;
-    
+
     setInterval(timer, 1000);
 
     function timer() {
@@ -21,10 +21,10 @@ class Activity {
 
       if (sec < 0) {
         return;
-      }; 
+      };
 
       if (sec < 10) {
-        sec = "0" + sec 
+        sec = "0" + sec
       }else {
         sec
       };
@@ -35,12 +35,12 @@ class Activity {
   };
 
   markComplete() {
-        
+
   };
 
   saveToStorage() {
-    
+
   };
 }
-    
+
 module.exports = Activity;
