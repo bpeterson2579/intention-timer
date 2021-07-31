@@ -14,9 +14,14 @@
   <header class="title" id="title">INTENTION TIMER</header>
   <main>
     <section class="new-activity" id="new-activity">
-        <h2 class="minor-heading">New Activity</h2>
+        <h2 class="minor-heading" id="minorHeading">New Activity</h2>
          <section class="input-box" id="input-box">
-            <div class="category-icon" id="category-icon">
+           <div class="display-counter hidden" id="displayCounter">
+             <h3 class="activity-class" id="activityClass"></h3>
+             <p class="time-remain" id="timeRemain"></p>
+             <button class="start-stop" id="startStop">START</button>
+           </div>
+            <div class="category-icon" id="categoryIcon">
               <div class="select-category"><h4 class="select-category">Select a category:</h4></div>
               <div class="buttons">
               <button class="study-button" id="study-button" name="study"><img class="icons" id="studyBtn" src="./assets/study.svg">Study</button>
@@ -25,18 +30,21 @@
               </div>
             </div>
             <form>
-            <div class="specific-goal" id="specific-goal">
+            <div class="specific-goal" id="specificGoal">
               <label>What would you like to accomplish during this time?</label>
-              <input class="input-specific-goal" type="text" id="goal" required>
+              <input novalidate class="input-specific-goal" type="text" id="goal" required>
+              <p class="error-message hidden" id="error"><img class="warning" src="./assets/warning.svg">A description is required.</p>
             </div>
-            <div class="minutes-seconds">
+            <div class="minutes-seconds" id="minutesSeconds">
               <div class="minutes">
                 <label class="label-goals">Minutes</label>
-                <input class="input-goals" type="number" min="0" id="minutes" required>
+                <input novalidate class="input-goals" type="number" min="0" id="minutes" required>
+                <p class="error-message hidden" id="minError"><img class="warning" src="./assets/warning.svg">Minutes is required.</p>
               </div>
               <div class="minutes">
                 <label class="label-goals">Seconds</label>
-                <input class="input-goals" type="number" min="0" max="59" id="seconds" required>
+                <input novalidate class="input-goals" type="number" min="0" max="59" id="seconds" required>
+                <p class="error-message hidden" id="secError"><img class="warning" src="./assets/warning.svg">Seconds is required.</p>
               </div>
             </div>
             <div class="submit-button">

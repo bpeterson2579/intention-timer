@@ -245,6 +245,59 @@ main {
   border: 2px solid #FD8078;
 }
 
+.warning {
+  height: 1.75vh;
+  width: 1.75vw;
+}
+
+.error-message {
+  display: flex;
+  color: #EFB7EC;
+  font-size: 1.75vh;
+}
+
+.display-counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.activity-class {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+.time-remain {
+  font-size: 7vh;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 3vh;
+}
+
+.start-stop {
+  display:block;
+  height: 20vh;
+  width: 20vh;
+  border-radius: 50%;
+  border: 1px solid red;
+  background-color: transparent;
+  color: #CBC9CF;
+  font-size: 3vh;
+}
+
+.category-study {
+  border: 2px solid #FD8078;
+}
+
+.category-meditate {
+  border: 2px solid #C278FD;
+}
+
+.category-exercise {
+  border: 2px solid #FD8078;
+}
+
 .hidden {
   display: none;
 }
