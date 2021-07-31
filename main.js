@@ -1,6 +1,6 @@
-var studyBtn = document.querySelector(".study-button");
-var meditateBtn = document.querySelector(".meditate-button");
-var exerciseBtn = document.querySelector(".exercise-button");
+var studyBtn = document.querySelector("#study-button");
+var meditateBtn = document.querySelector("#meditate-button");
+var exerciseBtn = document.querySelector("#exercise-button");
 var goalInput = document.querySelector("#goal");
 var minutesInput = document.querySelector("#minutes");
 var secondsInput = document.querySelector("#seconds");
@@ -8,13 +8,35 @@ var activityBtn = document.querySelector(".start-activity-section");
 
 var pastActivities = [];
 
-studyBtn.addEventListener('click', )
+// Event listeners
+
+studyBtn.addEventListener('click', changeBtn);
+meditateBtn.addEventListener('click', changeBtn);
+exerciseBtn.addEventListener('click', changeBtn);
+
+//Event Handlers
+
+function changeBtn(event) {
+    event.preventDefault();
+    var studyImg = document.querySelector('#studyBtn');
+    var meditateImg = document.querySelector('#meditateBtn');
+    var exerciseImg = document.querySelector('#exerciseBtn');
+
+    if (event.target.id === "study-button") {
+        studyImg.src = "./assets/study-active.svg";
+    } else if (event.target.id === "meditate-button") {
+        meditateImg.src = "./assets/meditate-active.svg";
+    } else if (event.target.id === "exercise-button") {
+        exerciseImg.src = "./assets/exercise-active.svg";
+    };
+};
+
 
 /*
     PSEUDOCODE
 
-    1. Buttons Exercice, Meditate or Study should change colors when clicked, also the border.
-        Access the buttons
+    1. Buttons Exercise, Meditate or Study should change colors when clicked, also the border.
+        Access the buttons DONE
         Add event listener for the clicks
         Create an event handler to change the appearance of the 3 buttons
         When clicked add a class to change border and Icon
@@ -37,3 +59,4 @@ studyBtn.addEventListener('click', )
     
     6. If the start activity button is clicked without having all 4 inputs filled, the user will receive an error but will not lose any information that was provided.
 */
+
