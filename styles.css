@@ -245,6 +245,17 @@ main {
   border: 2px solid #FD8078;
 }
 
+.warning {
+  height: 1.75vh;
+  width: 1.75vw;
+}
+
+.error-message {
+  display: flex;
+  color: #EFB7EC;
+  font-size: 1.75vh;
+}
+
 .hidden {
   display: none;
 }

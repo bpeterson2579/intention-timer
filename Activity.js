@@ -1,15 +1,15 @@
 class Activity {
   constructor(category, description, minutes, seconds) {
-    this.category = category,
-    this.description = description,
-    this.minutes = minutes,
-    this.seconds = seconds,
-    this.completed = false,
-    this.id = Date.now(),
-  } 
+    this.category = category;
+    this.description = description;
+    this.minutes = minutes;
+    this.seconds = seconds;
+    this.completed = false;
+    this.id = Date.now();
+  };
 
-  countdown(this.minutes, this.seconds) {
-    var timeDisplay = document.querySelector('#countDown');
+  countdown() {
+    // var timeDisplay = document.querySelector('#timeRemain');
     var min = this.minutes;
     var totalSec = (min * 60) + this.seconds;
 
@@ -29,7 +29,7 @@ class Activity {
         sec
       };
 
-      timeDisplay.innerText = `${min}:${sec}`;
+      timerTimeRemaining.innerText = `${min}:${sec}`;
       totalSec--
     };
   };
@@ -41,6 +41,4 @@ class Activity {
   saveToStorage() {
 
   };
-}
-
-module.exports = Activity;
+};
