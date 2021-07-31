@@ -114,7 +114,37 @@ main {
   font-size: 2vh;
 }
 
-.activity-button {
+.study-button {
+  background-color: #46424D;
+  border: 2px solid #CBC9CF;
+  color: #CBC9CF;
+  border-radius: 0.5vh;
+  width: 10vw;
+  height: 9vh;
+  margin: 1vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2vh;
+}
+
+.meditate-button {
+  background-color: #46424D;
+  border: 2px solid #CBC9CF;
+  color: #CBC9CF;
+  border-radius: 0.5vh;
+  width: 10vw;
+  height: 9vh;
+  margin: 1vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2vh;
+}
+
+.exercise-button {
   background-color: #46424D;
   border: 2px solid #CBC9CF;
   color: #CBC9CF;
@@ -136,9 +166,6 @@ main {
   width: 45vw;
 }
 
-.input-goals {
-  height: 5vh;
-}
 .past-activities {
   width: 35vw;
   height: 98vh;
@@ -146,24 +173,18 @@ main {
   border-left: 2px solid #46424D;
 }
 
-.goals > input {
-  width: 43vw;
-  margin-top: 1.8vh;
-  margin-bottom: 1vh;
-}
-
-.goals {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 2vh;
-  align-items: stretch;
-}
-
 .input-goals {
   background: transparent;
   border: none;
   border-bottom: 1px solid #CBC9CF;
   width: 15vw;
+  color: #CBC9CF;
+  font-size: 1.8vh;
+  margin-top: 1.5vh;
+}
+
+.label-goals {
+  font-size: 2vh;
 }
 
 .input-specific-goal {
@@ -172,6 +193,8 @@ main {
   margin-top: 2vh;
   border: none;
   border-bottom: 1px solid #CBC9CF;
+  color: #CBC9CF;
+  font-size: 1.8vh;
 }
 
 .minutes-seconds {
@@ -206,3 +229,23 @@ main {
   color: #46424D;
   font-size: 1.8vh;
 }
+
+.active-study {
+  color: #B3FD78;
+  border: 2px solid #B3FD78;
+}
+
+.active-meditate {
+  color: #C278FD;
+  border: 2px solid #C278FD;
+}
+
+.active-exercise {
+  color: #FD8078;
+  border: 2px solid #FD8078;
+}
+
+.hidden {
+  display: none;
+}
+

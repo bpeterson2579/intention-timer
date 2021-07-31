@@ -5,6 +5,7 @@ var goalInput = document.querySelector("#goal");
 var minutesInput = document.querySelector("#minutes");
 var secondsInput = document.querySelector("#seconds");
 var activityBtn = document.querySelector(".start-activity-section");
+var submitBtn = document.querySelector('#start-activity-section');
 
 var pastActivities = [];
 
@@ -13,21 +14,49 @@ var pastActivities = [];
 studyBtn.addEventListener('click', changeBtn);
 meditateBtn.addEventListener('click', changeBtn);
 exerciseBtn.addEventListener('click', changeBtn);
+submitBtn.addEventListener('click', showCustomMessage);
 
 //Event Handlers
 
+function showCustomMessage() {
+    
+    if (goalInput.value) {
+        goalInput.setCustomValidity('A description is required.');
+    } else {
+        goalInput.setCustomValidity('');
+    };
+}
+
 function changeBtn(event) {
     event.preventDefault();
+
     var studyImg = document.querySelector('#studyBtn');
     var meditateImg = document.querySelector('#meditateBtn');
     var exerciseImg = document.querySelector('#exerciseBtn');
 
     if (event.target.id === "study-button") {
         studyImg.src = "./assets/study-active.svg";
-    } else if (event.target.id === "meditate-button") {
+        meditateImg.src = "./assets/meditate.svg";
+        exerciseImg.src = "./assets/exercise.svg";
+        studyBtn.classList.add('active-study');
+        meditateBtn.classList.remove('active-meditate');
+        exerciseBtn.classList.remove('active-exercise');
+    }; 
+    if (event.target.id === "meditate-button") {
         meditateImg.src = "./assets/meditate-active.svg";
-    } else if (event.target.id === "exercise-button") {
+        exerciseImg.src = "./assets/exercise.svg";
+        studyImg.src = "./assets/study.svg";
+        meditateBtn.classList.add('active-meditate');
+        studyBtn.classList.remove('active-study');
+        exerciseBtn.classList.remove('active-exercise');
+    }; 
+    if (event.target.id === "exercise-button") {
         exerciseImg.src = "./assets/exercise-active.svg";
+        meditateImg.src = "./assets/meditate.svg";
+        studyImg.src = "./assets/study.svg";
+        exerciseBtn.classList.add('active-exercise');
+        meditateBtn.classList.remove('active-meditate');
+        studyBtn.classList.remove('active-study');
     };
 };
 
@@ -41,6 +70,8 @@ function changeBtn(event) {
         Create an event handler to change the appearance of the 3 buttons
         When clicked add a class to change border and Icon
             Hide previous icon, and show the new one
+
+                DONE
 
     2. Form validation. Just accept number in minutes and seconds input and make sure that e cannot be accepted.
         Limit the input type to numbers, and give it a min and max.
