@@ -17,11 +17,11 @@ var specificGoal = document.querySelector('.specific-goal');
 var timeEntered = document.querySelector('.minutes-seconds');
 var timerActivity = document.querySelector('#activityClass');
 var timerTimeRemaining = document.querySelector('#timeRemain');
-
+var categoryError = document.querySelector('#categoryError');
 
 
 var pastActivities = [];
-var category = null;
+var selectedCategory = null;
 
 // Event listeners
 
@@ -35,7 +35,18 @@ submitBtn.addEventListener('click', submitForm);
 function submitForm(event) {
   event.preventDefault();
   showCustomMessage();
-  updateDataModel(category);
+  
+  if(studyBtn.className === "study-button" && meditateBtn.className === "meditate-button" && exerciseBtn.className === "exercise-button") {
+    categoryError.classList.remove('hidden');
+    return;
+  };
+  
+  if (!goalInput.value || !minutesInput.value || !secondsInput.value) {
+      return;
+  };
+
+  updateDataModel(selectedCategory);
+
   categoryIcon.classList.add('hidden');
   specificGoal.classList.add('hidden');
   timeEntered.classList.add('hidden');
@@ -43,19 +54,30 @@ function submitForm(event) {
   displayCounter.classList.remove('hidden');
 
 
-  console.log(pastActivities[0]);
-  if(newActivity.category === 'study') {
+  if(pastActivities[0].category === 'study') {
     startStop.classList.add('category-study');
-  } else if (category === 'exercise') {
+  } else if (pastActivities[0].category === 'exercise') {
     startStop.classList.add('category-exercise');
-  } else if (category === 'meditate') {
+  } else if (pastActivities[0].category === 'meditate') {
     startStop.classList.add('category-meditate');
   };
 
 
   minorHeading.innerText = 'Current Activity';
   timerActivity.innerText = `${pastActivities[0].description}`;
-  pastActivities[0].countdown();
+  var displayMinutes;
+  var displaySeconds;
+  if (pastActivities[0].minutes < 10) {
+      displayMinutes = '0' + pastActivities[0].minutes;
+  } else {
+      displayMinutes = pastActivities[0].minutes
+  };
+  if (pastActivities[0].minutes < 10) {
+    displaySeconds = '0' + pastActivities[0].seconds;
+  } else {
+      displaySeconds = pastActivities[0].seconds;
+  };
+  timerTimeRemaining.innerHTML = `${displayMinutes}:${displaySeconds}`;
 };
 
 function changeBtn(event) {
@@ -97,21 +119,21 @@ function changeBtn(event) {
 // Helper Functions //
 
 function showCustomMessage() {
-  var error = document.querySelector('.error-message');
+  var error = document.querySelector('#error');
   var errorMin = document.querySelector('#minError');
   var errorSec = document.querySelector('#secError');
 
   if (!goalInput.value) {
     error.classList.remove('hidden');
-  }
+  };
 
   if (!minutesInput.value) {
     errorMin.classList.remove('hidden');
-  }
+  };
 
   if (!secondsInput.value) {
     errorSec.classList.remove('hidden');
-  }
+  };
 };
 
 var inputMin = document.querySelector('#minutes');
@@ -130,19 +152,23 @@ inputSec.addEventListener('keydown', function(event) {
   }
 });
 
-function updateDataModel(category) {
-  var newActivity = new Activity(category, goalInput.value, minutesInput.value, secondsInput.value);
+function updateDataModel(selectedCategory) {
+  var newActivity = new Activity(selectedCategory, goalInput.value, minutesInput.value, secondsInput.value);
   pastActivities.push(newActivity);
   return newActivity;
 };
 
 function chooseCategory() {
   for (var i = 0; i < buttons.length; i++) {
-    if (buttons[i].checked) {
-      category = buttons[i].name;
+    if (buttons[i].className === "study-button active-study") {
+      selectedCategory = buttons[i].name;
+    }else if (buttons[i].className === "meditate-button active-meditate") {
+        selectedCategory = buttons[i].name;
+    } else if (buttons[i].className === "exercise-button active-exercise") {
+        selectedCategory = buttons[i].name;
     };
   };
-  return category;
+  return selectedCategory;
 };
 
 /*
