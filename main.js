@@ -18,10 +18,18 @@ var timeEntered = document.querySelector('.minutes-seconds');
 var timerActivity = document.querySelector('#activityClass');
 var timerTimeRemaining = document.querySelector('#timeRemain');
 var categoryError = document.querySelector('#categoryError');
-
+var logActivityBtn = document.querySelector('#logActivity');
+var newActivityBTN = document.querySelector('#createNewActivity');
+var pastActivities = document.querySelector('#pastActivities');
+var createNewActivityBtn = document.querySelector('#createNewActivity');
+var form = document.querySelector('form');
+var studyImg = document.querySelector('#studyBtn');
+var meditateImg = document.querySelector('#meditateBtn');
+var exerciseImg = document.querySelector('#exerciseBtn');
 
 var pastActivities = [];
 var selectedCategory = null;
+var newActivity = null;
 
 // Event listeners
 
@@ -30,12 +38,41 @@ meditateBtn.addEventListener('click', changeBtn);
 exerciseBtn.addEventListener('click', changeBtn);
 submitBtn.addEventListener('click', submitForm);
 startStop.addEventListener('click', startActivity);
+logActivityBtn.addEventListener('click', displayCard);
+createNewActivityBtn.addEventListener('click', displayForm);
 
 //Event Handlers
 
-function startActivity() {
+function displayForm(event) {
+  event.preventDefault();
+  categoryIcon.classList.remove('hidden');
+  specificGoal.classList.remove('hidden');
+  timeEntered.classList.remove('hidden');
+  submitBtn.classList.remove('hidden');
+  displayCounter.classList.add('hidden');
+  createNewActivityBtn.classList.add('hidden');
+  form.reset();
+  studyBtn.classList.remove('active-study');
+  meditateBtn.classList.remove('active-meditate');
+  exerciseBtn.classList.remove('active-exercise');
+  studyImg.src = "./assets/study.svg";
+  meditateImg.src = "./assets/meditate.svg";
+  exerciseImg.src = "./assets/exercise.svg";
+};
+
+function displayCard(event) {
+  event.preventDefault();
+  displayCounter.classList.add('hidden');
+  createNewActivity.classList.remove('hidden');
+  // pastActivities.innerHTML += ``;
+};
+
+function startActivity(event) {
+  event.preventDefault();
   startStop.innerText = 'IN PROGRESS';
-  pastActivities[0].countdown();
+  startStop.disabled = true;
+  newActivity.countdown();
+  newActivity.markComplete();
 };
 
 function submitForm(event) {
@@ -60,30 +97,30 @@ function submitForm(event) {
   displayCounter.classList.remove('hidden');
 
 
-  if(pastActivities[0].category === 'study') {
+  if(newActivity.category === 'study') {
     startStop.classList.add('category-study');
-  } else if (pastActivities[0].category === 'exercise') {
+  } else if (newActivity.category === 'exercise') {
     startStop.classList.add('category-exercise');
-  } else if (pastActivities[0].category === 'meditate') {
+  } else if (newActivity.category === 'meditate') {
     startStop.classList.add('category-meditate');
   };
 
 
   minorHeading.innerText = 'Current Activity';
-  timerActivity.innerText = `${pastActivities[0].description}`;
+  timerActivity.innerText = `${newActivity.description}`;
   var displayMinutes;
   var displaySeconds;
-  if (pastActivities[0].minutes < 10) {
-      displayMinutes = '0' + pastActivities[0].minutes;
+  if (newActivity.minutes < 10) {
+      displayMinutes = '0' + newActivity.minutes;
   } else {
-      displayMinutes = pastActivities[0].minutes
+      displayMinutes = newActivity.minutes
   };
-  if (pastActivities[0].seconds < 10) {
-    displaySeconds = '0' + pastActivities[0].seconds;
-  } else if (pastActivities[0].seconds === 0) {
+  if (newActivity.seconds < 10) {
+    displaySeconds = '0' + newActivity.seconds;
+  } else if (newActivity.seconds === 0) {
     displaySeconds = '00';
   } else {
-      displaySeconds = pastActivities[0].seconds;
+      displaySeconds = newActivity.seconds;
   };
   timerTimeRemaining.innerText = `${displayMinutes}:${displaySeconds}`;
 };
@@ -91,11 +128,7 @@ function submitForm(event) {
 function changeBtn(event) {
     event.preventDefault();
 
-    var studyImg = document.querySelector('#studyBtn');
-    var meditateImg = document.querySelector('#meditateBtn');
-    var exerciseImg = document.querySelector('#exerciseBtn');
-
-    if (event.target.id === "study-button") {
+    if (event.target.id === "study-button" || event.target.id === "studyBtn") {
         studyImg.src = "./assets/study-active.svg";
         meditateImg.src = "./assets/meditate.svg";
         exerciseImg.src = "./assets/exercise.svg";
@@ -104,7 +137,7 @@ function changeBtn(event) {
         exerciseBtn.classList.remove('active-exercise');
         chooseCategory();
     };
-    if (event.target.id === "meditate-button") {
+    if (event.target.id === "meditate-button" || event.target.id === "meditateBtn") {
         meditateImg.src = "./assets/meditate-active.svg";
         exerciseImg.src = "./assets/exercise.svg";
         studyImg.src = "./assets/study.svg";
@@ -113,7 +146,7 @@ function changeBtn(event) {
         exerciseBtn.classList.remove('active-exercise');
         chooseCategory();
     };
-    if (event.target.id === "exercise-button") {
+    if (event.target.id === "exercise-button" || event.target.id === "exerciseBtn") {
         exerciseImg.src = "./assets/exercise-active.svg";
         meditateImg.src = "./assets/meditate.svg";
         studyImg.src = "./assets/study.svg";
@@ -161,8 +194,8 @@ inputSec.addEventListener('keydown', function(event) {
 });
 
 function updateDataModel(selectedCategory) {
-  var newActivity = new Activity(selectedCategory, goalInput.value, minutesInput.value, secondsInput.value);
-  pastActivities.push(newActivity);
+  newActivity = new Activity(selectedCategory, goalInput.value, minutesInput.value, secondsInput.value);
+  pastActivities.unshift(newActivity);
   return newActivity;
 };
 
@@ -181,19 +214,10 @@ function chooseCategory() {
 
 /*
     Iteration 4 - Logging Past Activities
-    1. When the timer completes the alert no longer appears
-
-    2. Display a motivational or congratulatory message on the left side of the page, replacing the timer.
-      Modify the InnerText of the p element when the timer stops.
-
-    3. The user needs to be able to acknowledge the message by clicking a log activity button.
-        Create LOG ACTIVITY button and hide it on the html.
-        Remove the hidden class when the time is up.
 
       3.1 A card with a category, time, and the users input for specific goal appears on the right side of the screen with the styling provided on the comp.
-        Add a click event to the log activity button
         Create an event handler that creates a an HTML element that contains the category, minutes, seconds and the specific goal.
         Create a CSS class to position and style the card.
-        
+
     4. Before moving on the cards should match the comp.
 */
