@@ -29,8 +29,14 @@ studyBtn.addEventListener('click', changeBtn);
 meditateBtn.addEventListener('click', changeBtn);
 exerciseBtn.addEventListener('click', changeBtn);
 submitBtn.addEventListener('click', submitForm);
+startStop.addEventListener('click', startActivity);
 
 //Event Handlers
+
+function startActivity() {
+  startStop.innerText = 'IN PROGRESS';
+  pastActivities[0].countdown();
+};
 
 function submitForm(event) {
   event.preventDefault();
@@ -72,12 +78,14 @@ function submitForm(event) {
   } else {
       displayMinutes = pastActivities[0].minutes
   };
-  if (pastActivities[0].minutes < 10) {
+  if (pastActivities[0].seconds < 10) {
     displaySeconds = '0' + pastActivities[0].seconds;
+  } else if (pastActivities[0].seconds === 0) {
+    displaySeconds = '00';
   } else {
       displaySeconds = pastActivities[0].seconds;
   };
-  timerTimeRemaining.innerHTML = `${displayMinutes}:${displaySeconds}`;
+  timerTimeRemaining.innerText = `${displayMinutes}:${displaySeconds}`;
 };
 
 function changeBtn(event) {
@@ -172,11 +180,13 @@ function chooseCategory() {
 };
 
 /*
-
-    5. Hide the form and display the timer with the name of the activity but not the category. The circle of the timer should be the color of the category.
-        Hide form
-        Create an html element to update the section and show the timer.
-        Create a css class to style the timer as the comp ask.
-
-    6. If the start activity button is clicked without having all 4 inputs filled, the user will receive an error but will not lose any information that was provided.
+    Iteration 3 Build an MVP
+    
+    1. The user can start the time the time by clicking `start`.
+        Create an event listener on the start button to listen for a click and run a function to start the counter
+          Create an event handler that calls our countdown method.
+    2. While timer is running the user should see it count down by second.
+        Make sure the timer functions on several scenarios
+    3. When the timer completes, an alert should appear in the browser, letting the user know that the time is up and the activity has been completed.
+        Create an alert that shows the user that the activity has been completed.
 */
