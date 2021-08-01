@@ -280,14 +280,14 @@ main {
   height: 20vh;
   width: 20vh;
   border-radius: 50%;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   background-color: transparent;
   color: #CBC9CF;
   font-size: 3vh;
 }
 
 .category-study {
-  border: 2px solid #FD8078;
+  border: 2px solid #B3FD78;
 }
 
 .category-meditate {

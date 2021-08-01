@@ -9,24 +9,25 @@ class Activity {
   };
 
   countdown() {
-    // var timeDisplay = document.querySelector('#timeRemain');
-    var min = this.minutes;
-    var totalSec = (min * 60) + this.seconds;
-
+    
     setInterval(timer, 1000);
+    var minutes = parseInt(this.minutes);
+    var seconds = parseInt(this.seconds);
+    
+    var totalSec = (minutes * 60) + seconds;
 
     function timer() {
       var min = Math.floor(totalSec / 60);
       var sec = totalSec % 60;
-
+      
       if (sec < 0) {
-        return;
+        return alert('This activity has been completed');
       };
 
       if (sec < 10) {
-        sec = "0" + sec
+        sec = "0" + sec;
       }else {
-        sec
+        sec;
       };
 
       timerTimeRemaining.innerText = `${min}:${sec}`;
