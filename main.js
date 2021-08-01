@@ -19,6 +19,7 @@ var timerActivity = document.querySelector('#activityClass');
 var timerTimeRemaining = document.querySelector('#timeRemain');
 
 
+
 var pastActivities = [];
 var category = null;
 
@@ -34,12 +35,24 @@ submitBtn.addEventListener('click', submitForm);
 function submitForm(event) {
   event.preventDefault();
   showCustomMessage();
-  updateDataModel();
+  updateDataModel(category);
   categoryIcon.classList.add('hidden');
   specificGoal.classList.add('hidden');
   timeEntered.classList.add('hidden');
   submitBtn.classList.add('hidden');
   displayCounter.classList.remove('hidden');
+
+
+  console.log(pastActivities[0]);
+  if(newActivity.category === 'study') {
+    startStop.classList.add('category-study');
+  } else if (category === 'exercise') {
+    startStop.classList.add('category-exercise');
+  } else if (category === 'meditate') {
+    startStop.classList.add('category-meditate');
+  };
+
+
   minorHeading.innerText = 'Current Activity';
   timerActivity.innerText = `${pastActivities[0].description}`;
   pastActivities[0].countdown();
@@ -117,9 +130,10 @@ inputSec.addEventListener('keydown', function(event) {
   }
 });
 
-function updateDataModel() {
+function updateDataModel(category) {
   var newActivity = new Activity(category, goalInput.value, minutesInput.value, secondsInput.value);
   pastActivities.push(newActivity);
+  return newActivity;
 };
 
 function chooseCategory() {
@@ -128,10 +142,10 @@ function chooseCategory() {
       category = buttons[i].name;
     };
   };
+  return category;
 };
 
 /*
-
 
     5. Hide the form and display the timer with the name of the activity but not the category. The circle of the timer should be the color of the category.
         Hide form
