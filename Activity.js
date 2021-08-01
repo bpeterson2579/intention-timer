@@ -21,7 +21,7 @@ class Activity {
       var sec = totalSec % 60;
       
       if (sec < 0) {
-        return alert('This activity has been completed');
+        return;
       };
 
       if (sec < 10) {

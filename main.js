@@ -180,13 +180,20 @@ function chooseCategory() {
 };
 
 /*
-    Iteration 3 Build an MVP
-    
-    1. The user can start the time the time by clicking `start`.
-        Create an event listener on the start button to listen for a click and run a function to start the counter
-          Create an event handler that calls our countdown method.
-    2. While timer is running the user should see it count down by second.
-        Make sure the timer functions on several scenarios
-    3. When the timer completes, an alert should appear in the browser, letting the user know that the time is up and the activity has been completed.
-        Create an alert that shows the user that the activity has been completed.
+    Iteration 4 - Logging Past Activities
+    1. When the timer completes the alert no longer appears
+
+    2. Display a motivational or congratulatory message on the left side of the page, replacing the timer.
+      Modify the InnerText of the p element when the timer stops.
+
+    3. The user needs to be able to acknowledge the message by clicking a log activity button.
+        Create LOG ACTIVITY button and hide it on the html.
+        Remove the hidden class when the time is up.
+
+      3.1 A card with a category, time, and the users input for specific goal appears on the right side of the screen with the styling provided on the comp.
+        Add a click event to the log activity button
+        Create an event handler that creates a an HTML element that contains the category, minutes, seconds and the specific goal.
+        Create a CSS class to position and style the card.
+        
+    4. Before moving on the cards should match the comp.
 */
