@@ -69,7 +69,7 @@ function displayCard(event) {
   event.preventDefault();
   displayCounter.classList.add('hidden');
   createNewActivity.classList.remove('hidden');
-  // pastActivities.innerHTML += ``;
+  pastActivities.innerHTML += ``;
 };
 
 function startActivity(event) {
