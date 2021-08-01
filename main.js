@@ -69,7 +69,14 @@ function displayCard(event) {
   event.preventDefault();
   displayCounter.classList.add('hidden');
   createNewActivity.classList.remove('hidden');
-  // pastActivities.innerHTML += ``;
+  pastActivities.innerHTML += `<section class="list-activities">
+  <div class="color-slot"></div>
+  <div class="card-activities">
+    <div class="category-list">${newActivity.category}</div>
+    <div class="time-list">${newActivity.minutes}:${newActivity.seconds}</div>
+    <div class="goal-list">${newActivity.description}</div>
+  </div>
+</section>`;
 };
 
 function startActivity(event) {
