@@ -26,7 +26,10 @@ var form = document.querySelector('form');
 var studyImg = document.querySelector('#studyBtn');
 var meditateImg = document.querySelector('#meditateBtn');
 var exerciseImg = document.querySelector('#exerciseBtn');
+var inputMin = document.querySelector('#minutes');
+var inputSec = document.querySelector('#seconds');
 
+var invalidInput = ['-', '+', 'e'];
 var pastActivities = [];
 var selectedCategory = null;
 var newActivity = null;
@@ -40,6 +43,8 @@ submitBtn.addEventListener('click', submitForm);
 startStop.addEventListener('click', startActivity);
 logActivityBtn.addEventListener('click', displayCard);
 createNewActivityBtn.addEventListener('click', displayForm);
+inputMin.addEventListener('keydown', preventInvalidInput);
+inputSec.addEventListener('keydown', preventInvalidInput);
 
 //Event Handlers
 
@@ -177,21 +182,11 @@ function showCustomMessage() {
   };
 };
 
-var inputMin = document.querySelector('#minutes');
-var inputSec = document.querySelector('#seconds');
-var invalidInput = ['-', '+', 'e'];
-
-inputMin.addEventListener('keydown', function(event) {
+function preventInvalidInput(event) {
   if (invalidInput.includes(event.key)) {
-    event.preventDefault();
-  }
-});
-
-inputSec.addEventListener('keydown', function(event) {
-  if (invalidInput.includes(event.key)) {
-    event.preventDefault();
-  }
-});
+     event.preventDefault();
+  };
+};
 
 function updateDataModel(selectedCategory) {
   newActivity = new Activity(selectedCategory, goalInput.value, minutesInput.value, secondsInput.value);
