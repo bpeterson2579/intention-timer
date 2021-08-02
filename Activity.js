@@ -51,7 +51,6 @@ class Activity {
   };
 
   saveToStorage() {
-    number++;
     var storedName = `activity${number}`;
     var objectString = JSON.stringify(this);
     localStorage.setItem(storedName, objectString);
