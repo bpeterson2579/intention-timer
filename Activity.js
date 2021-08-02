@@ -23,7 +23,7 @@ class Activity {
       if (sec === 0) {
         startStop.innerText = 'COMPLETE!';
         logActivityBtn.classList.remove('hidden');
-        timerTimeRemaining.innerText = 'Great Job! Keep it up!'
+        timerTimeRemaining.innerText = 'Great Job! Keep it up!';
         clearInterval(intervalSet);
         startStop.disabled = false;
         return;

@@ -37,7 +37,9 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  align-content: flex-end;
+  flex-wrap: wrap;
+  align-items: flex-start;
   height: 10vh;
 }
 
@@ -309,7 +311,7 @@ main {
   flex-direction: row-reverse;
   justify-content: space-between;
   background-color: #46424D;
-  margin-left: 2.5vw;
+  margin-left: 1vw;
   margin-bottom: 1vh;
   border-radius: 1vh;
   width: 35vw;;
