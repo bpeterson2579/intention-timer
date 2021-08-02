@@ -107,12 +107,14 @@ function submitForm(event) {
       return;
   };
 
+  startStop.innerText = 'START';
   updateDataModel(selectedCategory);
   
   categoryIcon.classList.add('hidden');
   specificGoal.classList.add('hidden');
   timeEntered.classList.add('hidden');
   submitBtn.classList.add('hidden');
+
   displayCounter.classList.remove('hidden');
 
   if(newActivity.category === 'study') {
