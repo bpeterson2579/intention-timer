@@ -1,5 +1,4 @@
 # Intention Timer
-<img width="127" alt="idea-box-logo" src="https://user-images.githubusercontent.com/80136642/121270129-f6117480-c875-11eb-9dfa-89e1beaaa762.png">
 
 ## Table of Contents
   - [Introduction](#introduction)
@@ -54,7 +53,7 @@ Visit our published Intention Timer page [here](https://csmucker83.github.io/ide
   - [CSS-TRICKS](https://css-tricks.com/)
 
 ## Contributors
-  - [Brian Peterson]https://github.com/bpeterson2579)
+  - [Brian Peterson](https://github.com/bpeterson2579)
   - [Carlos Gomez](https://github.com/karmacarlos)
   - [Christian Smucker](https://gist.github.com/csmucker83)
 
