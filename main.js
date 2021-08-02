@@ -20,7 +20,7 @@ var timerTimeRemaining = document.querySelector('#timeRemain');
 var categoryError = document.querySelector('#categoryError');
 var logActivityBtn = document.querySelector('#logActivity');
 var newActivityBTN = document.querySelector('#createNewActivity');
-var pastActivities = document.querySelector('#pastActivities');
+var cardSection = document.querySelector('#cardSection');
 var createNewActivityBtn = document.querySelector('#createNewActivity');
 var form = document.querySelector('form');
 var studyImg = document.querySelector('#studyBtn');
@@ -31,6 +31,7 @@ var inputSec = document.querySelector('#seconds');
 var error = document.querySelector('#error');
 var errorMin = document.querySelector('#minError');
 var errorSec = document.querySelector('#secError');
+var promtMessage = document.querySelector('#promtMessage');
 
 var invalidInput = ['-', '+', 'e'];
 var pastActivities = [];
@@ -76,10 +77,8 @@ function displayCard(event) {
   event.preventDefault();
   displayCounter.classList.add('hidden');
   createNewActivity.classList.remove('hidden');
-<<<<<<< HEAD
-  pastActivities.innerHTML += ``;
-=======
-  pastActivities.innerHTML += `<section class="list-activities">
+  promtMessage.classList.add('hidden');
+  cardSection.innerHTML += `<section class="list-activities">
   <div class="color-slot"></div>
   <div class="card-activities">
     <div class="category-list">${newActivity.category}</div>
@@ -87,7 +86,6 @@ function displayCard(event) {
     <div class="goal-list">${newActivity.description}</div>
   </div>
 </section>`;
->>>>>>> main
 };
 
 function startActivity(event) {
