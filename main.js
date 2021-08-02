@@ -28,6 +28,9 @@ var meditateImg = document.querySelector('#meditateBtn');
 var exerciseImg = document.querySelector('#exerciseBtn');
 var inputMin = document.querySelector('#minutes');
 var inputSec = document.querySelector('#seconds');
+var error = document.querySelector('#error');
+var errorMin = document.querySelector('#minError');
+var errorSec = document.querySelector('#secError');
 
 var invalidInput = ['-', '+', 'e'];
 var pastActivities = [];
@@ -63,13 +66,17 @@ function displayForm(event) {
   studyImg.src = "./assets/study.svg";
   meditateImg.src = "./assets/meditate.svg";
   exerciseImg.src = "./assets/exercise.svg";
+  error.classList.add('hidden');
+  errorMin.classList.add('hidden');
+  errorSec.classList.add('hidden');
+  categoryError.classList.add('hidden');
 };
 
 function displayCard(event) {
   event.preventDefault();
   displayCounter.classList.add('hidden');
   createNewActivity.classList.remove('hidden');
-  // pastActivities.innerHTML += ``;
+  pastActivities.innerHTML += ``;
 };
 
 function startActivity(event) {
@@ -83,11 +90,6 @@ function startActivity(event) {
 function submitForm(event) {
   event.preventDefault();
   showCustomMessage();
-  
-  if(studyBtn.className === "study-button" && meditateBtn.className === "meditate-button" && exerciseBtn.className === "exercise-button") {
-    categoryError.classList.remove('hidden');
-    return;
-  };
   
   if (!goalInput.value || !minutesInput.value || !secondsInput.value) {
       return;
@@ -165,10 +167,7 @@ function changeBtn(event) {
 // Helper Functions //
 
 function showCustomMessage() {
-  var error = document.querySelector('#error');
-  var errorMin = document.querySelector('#minError');
-  var errorSec = document.querySelector('#secError');
-
+  
   if (!goalInput.value) {
     error.classList.remove('hidden');
   };
@@ -179,6 +178,11 @@ function showCustomMessage() {
 
   if (!secondsInput.value) {
     errorSec.classList.remove('hidden');
+  };
+
+  if(studyBtn.className === "study-button" && meditateBtn.className === "meditate-button" && exerciseBtn.className === "exercise-button") {
+    categoryError.classList.remove('hidden');
+    return;
   };
 };
 
