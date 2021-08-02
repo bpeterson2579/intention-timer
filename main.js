@@ -37,6 +37,7 @@ var invalidInput = ['-', '+', 'e'];
 var pastActivities = [];
 var selectedCategory = null;
 var newActivity = null;
+var number = 0;
 
 // Event listeners
 
@@ -75,6 +76,8 @@ function displayForm(event) {
 
 function displayCard(event) {
   event.preventDefault();
+  number++;
+  newActivity.saveToStorage();
   displayCounter.classList.add('hidden');
   createNewActivity.classList.remove('hidden');
   promtMessage.classList.add('hidden');
@@ -105,13 +108,12 @@ function submitForm(event) {
   };
 
   updateDataModel(selectedCategory);
-
+  
   categoryIcon.classList.add('hidden');
   specificGoal.classList.add('hidden');
   timeEntered.classList.add('hidden');
   submitBtn.classList.add('hidden');
   displayCounter.classList.remove('hidden');
-
 
   if(newActivity.category === 'study') {
     startStop.classList.add('category-study');
@@ -120,7 +122,6 @@ function submitForm(event) {
   } else if (newActivity.category === 'meditate') {
     startStop.classList.add('category-meditate');
   };
-
 
   minorHeading.innerText = 'Current Activity';
   timerActivity.innerText = `${newActivity.description}`;
@@ -221,11 +222,9 @@ function chooseCategory() {
 };
 
 /*
-    Iteration 4 - Logging Past Activities
+    Iteration 5 When the user refreshes the page, The past activities are still displayed.
 
-      3.1 A card with a category, time, and the users input for specific goal appears on the right side of the screen with the styling provided on the comp.
-        Create an event handler that creates a an HTML element that contains the category, minutes, seconds and the specific goal.
-        Create a CSS class to position and style the card.
+    1. Storage the array pastActivities on the local storage
 
-    4. Before moving on the cards should match the comp.
+    2. Write code to have it displayed.
 */
