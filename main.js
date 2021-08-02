@@ -20,7 +20,7 @@ var timerTimeRemaining = document.querySelector('#timeRemain');
 var categoryError = document.querySelector('#categoryError');
 var logActivityBtn = document.querySelector('#logActivity');
 var newActivityBTN = document.querySelector('#createNewActivity');
-var pastActivities = document.querySelector('#pastActivities');
+var cardSection = document.querySelector('#cardSection');
 var createNewActivityBtn = document.querySelector('#createNewActivity');
 var form = document.querySelector('form');
 var studyImg = document.querySelector('#studyBtn');
@@ -28,6 +28,10 @@ var meditateImg = document.querySelector('#meditateBtn');
 var exerciseImg = document.querySelector('#exerciseBtn');
 var inputMin = document.querySelector('#minutes');
 var inputSec = document.querySelector('#seconds');
+var error = document.querySelector('#error');
+var errorMin = document.querySelector('#minError');
+var errorSec = document.querySelector('#secError');
+var promtMessage = document.querySelector('#promtMessage');
 
 var invalidInput = ['-', '+', 'e'];
 var pastActivities = [];
@@ -63,17 +67,22 @@ function displayForm(event) {
   studyImg.src = "./assets/study.svg";
   meditateImg.src = "./assets/meditate.svg";
   exerciseImg.src = "./assets/exercise.svg";
+  error.classList.add('hidden');
+  errorMin.classList.add('hidden');
+  errorSec.classList.add('hidden');
+  categoryError.classList.add('hidden');
 };
 
 function displayCard(event) {
   event.preventDefault();
   displayCounter.classList.add('hidden');
   createNewActivity.classList.remove('hidden');
-  pastActivities.innerHTML += `<section class="list-activities">
+  promtMessage.classList.add('hidden');
+  cardSection.innerHTML += `<section class="list-activities">
   <div class="color-slot"></div>
   <div class="card-activities">
     <div class="category-list">${newActivity.category}</div>
-    <div class="time-list">${newActivity.minutes}:${newActivity.seconds}</div>
+    <div class="time-list">${newActivity.minutes} MIN</div>
     <div class="goal-list">${newActivity.description}</div>
   </div>
 </section>`;
@@ -90,11 +99,6 @@ function startActivity(event) {
 function submitForm(event) {
   event.preventDefault();
   showCustomMessage();
-  
-  if(studyBtn.className === "study-button" && meditateBtn.className === "meditate-button" && exerciseBtn.className === "exercise-button") {
-    categoryError.classList.remove('hidden');
-    return;
-  };
   
   if (!goalInput.value || !minutesInput.value || !secondsInput.value) {
       return;
@@ -172,10 +176,7 @@ function changeBtn(event) {
 // Helper Functions //
 
 function showCustomMessage() {
-  var error = document.querySelector('#error');
-  var errorMin = document.querySelector('#minError');
-  var errorSec = document.querySelector('#secError');
-
+  
   if (!goalInput.value) {
     error.classList.remove('hidden');
   };
@@ -186,6 +187,11 @@ function showCustomMessage() {
 
   if (!secondsInput.value) {
     errorSec.classList.remove('hidden');
+  };
+
+  if(studyBtn.className === "study-button" && meditateBtn.className === "meditate-button" && exerciseBtn.className === "exercise-button") {
+    categoryError.classList.remove('hidden');
+    return;
   };
 };
 
