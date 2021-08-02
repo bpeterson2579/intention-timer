@@ -82,7 +82,7 @@ function displayCard(event) {
   <div class="color-slot"></div>
   <div class="card-activities">
     <div class="category-list">${newActivity.category}</div>
-    <div class="time-list">${newActivity.minutes}:${newActivity.seconds}</div>
+    <div class="time-list">${newActivity.minutes} MIN</div>
     <div class="goal-list">${newActivity.description}</div>
   </div>
 </section>`;

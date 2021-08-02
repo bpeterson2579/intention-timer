@@ -310,6 +310,7 @@ main {
   justify-content: space-between;
   background-color: #46424D;
   margin-left: 2.5vw;
+  margin-bottom: 1vh;
   border-radius: 1vh;
   width: 35vw;;
 }
