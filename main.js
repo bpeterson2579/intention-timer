@@ -35,6 +35,8 @@ var promptMessage = document.querySelector('#promptMessage');
 var pastActivitiesSection = document.querySelector('#pastActivitiesSection');
 var colorSlot = document.querySelector('.card-activities');
 
+// Onload actions
+
 var invalidInput = ['-', '+', 'e'];
 var pastActivities = [];
 var selectedCategory = null;
@@ -42,6 +44,7 @@ var newActivity = null;
 var number = 0;
 number =+ 20;
 var activity = null;
+displayPastActivities();
 
 // Event listeners
 
@@ -65,6 +68,7 @@ function preventInvalidInput(event) {
 
 function displayForm(event) {
   event.preventDefault();
+  selectedCategory = null;
   minorHeading.innerText = 'New Activity';
   categoryIcon.classList.remove('hidden');
   specificGoal.classList.remove('hidden');
@@ -96,26 +100,13 @@ function displayCard(event) {
   cardSection.classList.add('hidden');
   pastActivitiesSection.innerHTML += 
   `<section class="list-activities">
-    <div class="color-slot" id="${newActivity.category}"></div>
+    <div class="color-slot color-slot-${newActivity.category}" id="${newActivity.category}"></div>
     <div class="card-activities">
     <div class="category-list">${newActivity.category}</div>
     <div class="time-list">${newActivity.minutes} MIN</div>
     <div class="goal-list">${newActivity.description}</div>
     </div>
   </section>`;
-  
-  if (newActivity.category === 'study') {
-    var colorSlot = document.querySelector('#study');
-    colorSlot.style.backgroundColor = '#B3FD78';
-  }; 
-  if (newActivity.category === 'meditate') {
-    var colorSlot = document.querySelector('#meditate');
-    colorSlot.style.backgroundColor = '#C278FD';
-  }; 
-  if (newActivity.category === 'exercise') {
-    var colorSlot = document.querySelector('#exercise');
-    colorSlot.style.backgroundColor = '#FD8078';
-  };
 };
 
 function startActivity(event) {
@@ -129,7 +120,7 @@ function submitForm(event) {
   event.preventDefault();
   showCustomMessage();
 
-  if (!goalInput.value || !minutesInput.value || !secondsInput.value) {
+  if (!goalInput.value || !minutesInput.value || !secondsInput.value || !selectedCategory) {
       return;
   };
 
@@ -207,24 +198,30 @@ function changeBtn(event) {
 
 function showCustomMessage() {
 
+  if(studyBtn.className === "study-button" && meditateBtn.className === "meditate-button" && exerciseBtn.className === "exercise-button") {
+    categoryError.classList.remove('hidden');
+    return;
+  };
+  
   if (!goalInput.value) {
     error.classList.remove('hidden');
     return;
+  } else {
+    error.classList.add('hidden');
   };
 
   if (!minutesInput.value) {
     errorMin.classList.remove('hidden');
     return;
+  } else {
+    errorMin.classList.add('hidden');
   };
 
   if (!secondsInput.value) {
     errorSec.classList.remove('hidden');
     return;
-  };
-
-  if(studyBtn.className === "study-button" && meditateBtn.className === "meditate-button" && exerciseBtn.className === "exercise-button") {
-    categoryError.classList.remove('hidden');
-    return;
+  } else {
+    errorSec.classList.add('hidden');
   };
 };
 
@@ -254,27 +251,15 @@ function displayPastActivities() {
     activity = JSON.parse(localStorage.getItem(localStorage.key(i)));
     pastActivitiesSection.innerHTML += 
     `<section class="list-activities">
-      <div class="color-slot" id="${activity.category}"></div>
+      <div class="color-slot color-slot-${activity.category}" id="${activity.category}"></div>
       <div class="card-activities">
       <div class="category-list">${activity.category}</div>
       <div class="time-list">${activity.minutes} MIN</div>
       <div class="goal-list">${activity.description}</div>
       </div>
     </section>`;
-    if (activity.category === 'study') {
-      var colorSlot = document.querySelector('#study');
-      colorSlot.style.backgroundColor = '#B3FD78';
-    }; 
-    if (activity.category === 'meditate') {
-      var colorSlot = document.querySelector('#meditate');
-      colorSlot.style.backgroundColor = '#C278FD';
-    }; 
-    if (activity.category === 'exercise') {
-      var colorSlot = document.querySelector('#exercise');
-      colorSlot.style.backgroundColor = '#FD8078';
-    };
     };
   };
 };
 
-displayPastActivities();
+
