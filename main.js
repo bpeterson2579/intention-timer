@@ -66,38 +66,31 @@ function preventInvalidInput(event) {
 
 function displayForm(event) {
   event.preventDefault();
+  
   selectedCategory = null;
+
   minorHeading.innerText = 'New Activity';
-  // categoryIcon.classList.remove('hidden');
-  // specificGoal.classList.remove('hidden');
-  // timeEntered.classList.remove('hidden');
-  // submitBtn.classList.remove('hidden');
-  // displayCounter.classList.add('hidden');
-  // createNewActivityBtn.classList.add('hidden');
+
   show(categoryIcon);
   show(specificGoal);
   show(timeEntered);
   show(submitBtn);
   hide(displayCounter);
   hide(createNewActivityBtn);
-  form.reset();
-  studyBtn.classList.remove('active-study');
-  meditateBtn.classList.remove('active-meditate');
-  exerciseBtn.classList.remove('active-exercise');
-  studyImg.src = "./assets/study.svg";
-  meditateImg.src = "./assets/meditate.svg";
-  exerciseImg.src = "./assets/exercise.svg";
-  // error.classList.add('hidden');
-  // errorMin.classList.add('hidden');
-  // errorSec.classList.add('hidden');
-  // categoryError.classList.add('hidden');
-  // show(studyBtn);
-  // show(meditateBtn);
-  // show(exerciseBtn);
   hide(error);
   hide(errorMin);
   hide(errorSec);
   hide(categoryError);
+
+  form.reset();
+
+  studyBtn.classList.remove('active-study');
+  meditateBtn.classList.remove('active-meditate');
+  exerciseBtn.classList.remove('active-exercise');
+
+  studyImg.src = "./assets/study.svg";
+  meditateImg.src = "./assets/meditate.svg";
+  exerciseImg.src = "./assets/exercise.svg";
 };
 
 function displayCard(event) {
