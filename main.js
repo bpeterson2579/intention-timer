@@ -33,6 +33,7 @@ var errorMin = document.querySelector('#minError');
 var errorSec = document.querySelector('#secError');
 var promptMessage = document.querySelector('#promptMessage');
 var pastActivitiesSection = document.querySelector('#pastActivitiesSection');
+var colorSlot = document.querySelector('.card-activities');
 
 var invalidInput = ['-', '+', 'e'];
 var pastActivities = [];
@@ -100,6 +101,7 @@ function displayCard(event) {
     <div class="goal-list">${newActivity.description}</div>
   </div>
 </section>`;
+  colorSlot.classList.add('.color-slot-study');
 };
 
 function startActivity(event) {
