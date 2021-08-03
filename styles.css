@@ -63,7 +63,7 @@ header {
 
 main {
   display: flex;
-  background-color: #26222D;
+  background-color: #2B2733;
   width: 100vw;
   height: 100vh;
 }
@@ -105,6 +105,7 @@ main {
   margin-bottom: 3vh;
   margin-left: 2vw;
   border-radius: 0.5vw;
+  box-shadow: 1vh .5vw #26222D;
 }
 
 .select-category {
@@ -129,6 +130,7 @@ main {
   justify-content: center;
   align-items: center;
   font-size: 2vh;
+  cursor: pointer;
 }
 
 .meditate-button {
@@ -144,6 +146,7 @@ main {
   justify-content: center;
   align-items: center;
   font-size: 2vh;
+  cursor: pointer;
 }
 
 .exercise-button {
@@ -159,6 +162,7 @@ main {
   justify-content: center;
   align-items: center;
   font-size: 2vh;
+  cursor: pointer;
 }
 
 .buttons {
@@ -217,12 +221,13 @@ main {
   margin-right: 0;
 }
 
-.start-activity-button {
+.start-activity-button, .log-activity {
   height: 5vh;
-  width: 12vw;
+  width: auto;
   border-radius: 1vh;
   color: #46424D;
   font-size: 1.8vh;
+  cursor: pointer;
 }
 
 .active-study {
@@ -264,20 +269,22 @@ main {
 }
 
 .time-remain {
-  font-size: 7vh;
+  font-size: 9vh;
   font-weight: bold;
   margin-top: 0;
   margin-bottom: 3vh;
+  color: white;
 }
 
 .start-stop {
   display:block;
-  height: 20vh;
-  width: 20vh;
+  height: 30vh;
+  width: 30vh;
   border-radius: 50%;
   background-color: transparent;
   color: #CBC9CF;
   font-size: 3vh;
+  cursor: pointer;
 }
 
 .category-study {
@@ -306,7 +313,8 @@ main {
   margin-left: 1vw;
   margin-bottom: 1vh;
   border-radius: 1vh;
-  width: 35vw;;
+  width: 35vw;
+  box-shadow: 1vh .5vw #26222D;
 }
 
 .color-slot {
@@ -316,6 +324,18 @@ main {
   border-radius: 0.08vh;
   padding-top: 2px;
   margin-right: 0.5vw;
+}
+
+.color-slot-study {
+  background-color: #B3FD78;
+}
+
+.color-slot-meditate {
+  background-color: #C278FD;
+}
+
+.color-slot-exercise {
+  background-color: #FD8078;
 }
 
 .card-activities {
@@ -350,4 +370,9 @@ main {
   flex-direction: column;
   align-items: center;
   width: 35vw;
+}
+
+.log-activity {
+  margin-top: 5vh;
+  width: 16vw;
 }
