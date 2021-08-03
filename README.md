@@ -40,4 +40,4 @@ Mod1 + Intention Timer
 
 ## Project Specs
   - The project spec & rubric can be found [here](https://frontend.turing.edu/projects/module-1/intention-timer-group.html)
-  - Our deployed page is [here](file:///Users/brian/turing/1module/projects/intention-timer/index.html?).
+  - Our deployed page is [here](https://bpeterson2579.github.io/intention-timer/).
