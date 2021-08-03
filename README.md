@@ -4,8 +4,6 @@ Mod1 + Intention Timer
 ## Table of Contents
   - [Abstract](#abstract)
   - [Technologies](#technologies)
-  - [Code Architecture](#code-architecture)
-  - [Illustrations](#illustrations)
   - [Install + Setup](#set-up)
   - [Contributors](#contributors)
 	- [Wins](#wins)
@@ -13,97 +11,32 @@ Mod1 + Intention Timer
   - [Project Specs](#project-specs)
 
 ## Abstract
-	Overview of project + goals
+	This project is designed to offer a way to track time spent on particular activities. Users can select whether the activity is studying, meditating, or exercising and then refine that to a more specific goal as well as choosing how long to do that activity. After the user has filled all those categories out, they will be brought to a page with a timer that matches their time entered. Users can then activate the timer at their leisure and complete their activity. When they are done, they can log their activity to be saved on the right side of the screen.
 
 ## Technologies
   - Javascript
   - CSS HTML
-  - VSCode
+  - VSCode/Atom
 
-## Code Architecture
-
-## Illustrations
-
-Use [https://gifcap.dev/](https://gifcap.dev/) to make GIFs
 
 ## Install + Setup
-	- Install instructions, how to access the website and how to use the website
+	- clone this repo: https://github.com/bpeterson2579/intention-timer
+  - On the command line, type: "open index.html"
 
 ## Contributors
   - [Carlos Gomez](https://github.com/karmacarlos)
+  - [Brian Peterson](https://github.com/bpeterson2579)
+  - [Christian Smucker](https://gist.github.com/csmucker83)
 
 ## Wins
-	- What went well!
-	- Successes
+	- Our CSS abilities grew during the course of this project
+	- We made a website from the ground up!
 
 ## Challenges + Improvements
-	- What was difficult & how you would like to improve on code/project
-	- Any Bugs
-	- Future Iterations
-
-## Project Specs
-  - The project spec & rubric can be found [here](insert project spec sheet here)
-
-```
-
-# Intention Timer
-
-## Table of Contents
-  - [Introduction](#introduction)
-  - [Technologies](#technologies)
-  - [Features](#features)
-  - [Illustrations](#illustrations)
-  - [Deployed Page](#deployed-page)
-  - [Possible Future Extensions](#possible-future-extensions)
-  - [Set Up](#set-up)
-  - [Sources](#sources)
-  - [Contributors](#contributors)
-  - [Project Specs](#project-specs)
-
-## Introduction
-
-  Visit Intention Timer to store all your useful and not so useful ideas. Ideas to impress your friends with, ideas with purpose for later use, or just random thoughts; you've got a one stop shop for future reference.
-
-## Technologies
-  - Javascript
-  - HTML
-  - CSS
-
-## Features
-
-   - You are able to create and locally store ideas to return to at a later date.
-   - You can create a title and a body for your idea.
-   - If you have an idea you really like, then click the star on the right corner of the idea to favorite it.
-   - Also, if you have already fulfilled an idea or just don't like it anymore, you can delete it.
-
-## Illustrations
-
-![Intention Timer gif]()
-
-## Deployed Page
-
-Visit our published Intention Timer page [here](https://csmucker83.github.io/ideabox/)
-
-## Possible Future Extensions
-
-  - Create a favorites section to view all of favorited ideas.
-  - Create search bar functionality to filter through and sort ideas.
-
-## Set Up
-
-1. Fork this repo  
-2. Clone the repo to your local machine
-3. View the project in the browser by running open index.html in your terminal
-
-## Sources
-  - [MDN](http://developer.mozilla.org/en-US/)
-  - [W3Schools](https://www.w3schools.com/)
-  - [CSS-TRICKS](https://css-tricks.com/)
-
-## Contributors
-  - [Brian Peterson](https://github.com/bpeterson2579)
-  - [Carlos Gomez](https://github.com/karmacarlos)
-  - [Christian Smucker](https://gist.github.com/csmucker83)
+	- localStorage was a little tricky at first, but we got it working.
+  - Getting the timer to work properly was a struggle as well.
+	- localStorage seems to not work all the time, but we cannot replicate the bug.
 
 ## Project Specs
   - The project spec & rubric can be found [here](https://frontend.turing.edu/projects/module-1/intention-timer-group.html)
+  - Our deployed page is [here](file:///Users/brian/turing/1module/projects/intention-timer/index.html?).
