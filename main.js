@@ -35,12 +35,16 @@ var promptMessage = document.querySelector('#promptMessage');
 var pastActivitiesSection = document.querySelector('#pastActivitiesSection');
 var colorSlot = document.querySelector('.card-activities');
 
+// Onload actions
+
 var invalidInput = ['-', '+', 'e'];
 var pastActivities = [];
 var selectedCategory = null;
 var newActivity = null;
 var number = 0;
+number =+ 20;
 var activity = null;
+displayPastActivities();
 
 // Event listeners
 
@@ -64,6 +68,7 @@ function preventInvalidInput(event) {
 
 function displayForm(event) {
   event.preventDefault();
+  selectedCategory = null;
   minorHeading.innerText = 'New Activity';
   categoryIcon.classList.remove('hidden');
   specificGoal.classList.remove('hidden');
@@ -93,15 +98,15 @@ function displayCard(event) {
   createNewActivity.classList.remove('hidden');
   promptMessage.classList.add('hidden');
   cardSection.classList.add('hidden');
-  pastActivitiesSection.innerHTML += `<section class="list-activities">
-  <div class="color-slot"></div>
-  <div class="card-activities">
+  pastActivitiesSection.innerHTML += 
+  `<section class="list-activities">
+    <div class="color-slot color-slot-${newActivity.category}" id="${newActivity.category}"></div>
+    <div class="card-activities">
     <div class="category-list">${newActivity.category}</div>
     <div class="time-list">${newActivity.minutes} MIN</div>
     <div class="goal-list">${newActivity.description}</div>
-  </div>
-</section>`;
-  colorSlot.classList.add('.color-slot-study');
+    </div>
+  </section>`;
 };
 
 function startActivity(event) {
@@ -115,7 +120,7 @@ function submitForm(event) {
   event.preventDefault();
   showCustomMessage();
 
-  if (!goalInput.value || !minutesInput.value || !secondsInput.value) {
+  if (!goalInput.value || !minutesInput.value || !secondsInput.value || !selectedCategory) {
       return;
   };
 
@@ -193,24 +198,30 @@ function changeBtn(event) {
 
 function showCustomMessage() {
 
+  if(studyBtn.className === "study-button" && meditateBtn.className === "meditate-button" && exerciseBtn.className === "exercise-button") {
+    categoryError.classList.remove('hidden');
+    return;
+  };
+  
   if (!goalInput.value) {
     error.classList.remove('hidden');
     return;
+  } else {
+    error.classList.add('hidden');
   };
 
   if (!minutesInput.value) {
     errorMin.classList.remove('hidden');
     return;
+  } else {
+    errorMin.classList.add('hidden');
   };
 
   if (!secondsInput.value) {
     errorSec.classList.remove('hidden');
     return;
-  };
-
-  if(studyBtn.className === "study-button" && meditateBtn.className === "meditate-button" && exerciseBtn.className === "exercise-button") {
-    categoryError.classList.remove('hidden');
-    return;
+  } else {
+    errorSec.classList.add('hidden');
   };
 };
 
@@ -238,16 +249,17 @@ function displayPastActivities() {
     if (localStorage.length > 1) {
     cardSection.classList.add('hidden');
     activity = JSON.parse(localStorage.getItem(localStorage.key(i)));
-    pastActivitiesSection.innerHTML += `<section class="list-activities">
-    <div class="color-slot"></div>
-    <div class="card-activities">
+    pastActivitiesSection.innerHTML += 
+    `<section class="list-activities">
+      <div class="color-slot color-slot-${activity.category}" id="${activity.category}"></div>
+      <div class="card-activities">
       <div class="category-list">${activity.category}</div>
       <div class="time-list">${activity.minutes} MIN</div>
       <div class="goal-list">${activity.description}</div>
-    </div>
-  </section>`;
+      </div>
+    </section>`;
     };
   };
 };
 
-displayPastActivities();
+
