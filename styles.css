@@ -7,6 +7,7 @@ html {
 
 body {
   background-color: #46424D;
+  margin-left: 0;
 }
 
 header {
@@ -36,8 +37,6 @@ header {
 .past-activities {
   display: flex;
   flex-direction: column;
-  /* justify-content: flex-start; */
-  /* align-content: flex-end; */
   align-items: center;
   width: 35vw;
   height: 98vh;
@@ -60,7 +59,7 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  border-left: 2px solid #46424D;
+  border-left: 1px solid #46424D;
 }
 
 main {
