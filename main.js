@@ -4,8 +4,8 @@ var exerciseBtn = document.querySelector("#exercise-button");
 var goalInput = document.querySelector("#goal");
 var minutesInput = document.querySelector("#minutes");
 var secondsInput = document.querySelector("#seconds");
-var activityBtn = document.querySelector(".start-activity-section");
-var submitBtn = document.querySelector('#start-activity-section');
+var activityBtn = document.querySelector("#startActivitySection");
+var submitBtn = document.querySelector('#startActivityButton');
 var buttons = document.querySelectorAll('button');
 var displayCounter = document.querySelector('#displayCounter');
 var activityClass = document.querySelector('#activityClass');
@@ -13,8 +13,8 @@ var timeRemain = document.querySelector('#timeRemain');
 var startStop = document.querySelector('#startStop');
 var minorHeading = document.querySelector('#minorHeading');
 var categoryIcon = document.querySelector('#categoryIcon');
-var specificGoal = document.querySelector('.specific-goal');
-var timeEntered = document.querySelector('.minutes-seconds');
+var specificGoal = document.querySelector('#specificGoal');
+var timeEntered = document.querySelector('#minutesSeconds');
 var timerActivity = document.querySelector('#activityClass');
 var timerTimeRemaining = document.querySelector('#timeRemain');
 var categoryError = document.querySelector('#categoryError');
@@ -33,7 +33,6 @@ var errorMin = document.querySelector('#minError');
 var errorSec = document.querySelector('#secError');
 var promptMessage = document.querySelector('#promptMessage');
 var pastActivitiesSection = document.querySelector('#pastActivitiesSection');
-var colorSlot = document.querySelector('.card-activities');
 
 // Onload actions
 
@@ -69,12 +68,18 @@ function displayForm(event) {
   event.preventDefault();
   selectedCategory = null;
   minorHeading.innerText = 'New Activity';
-  categoryIcon.classList.remove('hidden');
-  specificGoal.classList.remove('hidden');
-  timeEntered.classList.remove('hidden');
-  submitBtn.classList.remove('hidden');
-  displayCounter.classList.add('hidden');
-  createNewActivityBtn.classList.add('hidden');
+  // categoryIcon.classList.remove('hidden');
+  // specificGoal.classList.remove('hidden');
+  // timeEntered.classList.remove('hidden');
+  // submitBtn.classList.remove('hidden');
+  // displayCounter.classList.add('hidden');
+  // createNewActivityBtn.classList.add('hidden');
+  show(categoryIcon);
+  show(specificGoal);
+  show(timeEntered);
+  show(submitBtn);
+  hide(displayCounter);
+  hide(createNewActivityBtn);
   form.reset();
   studyBtn.classList.remove('active-study');
   meditateBtn.classList.remove('active-meditate');
@@ -82,22 +87,28 @@ function displayForm(event) {
   studyImg.src = "./assets/study.svg";
   meditateImg.src = "./assets/meditate.svg";
   exerciseImg.src = "./assets/exercise.svg";
-  error.classList.add('hidden');
-  errorMin.classList.add('hidden');
-  errorSec.classList.add('hidden');
-  categoryError.classList.add('hidden');
+  // error.classList.add('hidden');
+  // errorMin.classList.add('hidden');
+  // errorSec.classList.add('hidden');
+  // categoryError.classList.add('hidden');
+  // show(studyBtn);
+  // show(meditateBtn);
+  // show(exerciseBtn);
+  hide(error);
+  hide(errorMin);
+  hide(errorSec);
+  hide(categoryError);
 };
 
 function displayCard(event) {
   event.preventDefault();
-  number++;
   newActivity.markComplete();
   newActivity.saveToStorage();
   displayCounter.classList.add('hidden');
   createNewActivity.classList.remove('hidden');
   promptMessage.classList.add('hidden');
   cardSection.classList.add('hidden');
-  pastActivitiesSection.innerHTML += 
+  pastActivitiesSection.innerHTML +=
   `<section class="list-activities">
     <div class="color-slot color-slot-${newActivity.category}" id="${newActivity.category}"></div>
     <div class="card-activities">
@@ -195,6 +206,14 @@ function changeBtn(event) {
 
 // Helper Functions //
 
+function show(element) {
+  element.classList.remove('hidden');
+};
+
+function hide(element) {
+  element.classList.add('hidden');
+}
+
 function showCustomMessage() {
 
   if(studyBtn.className === "study-button" && meditateBtn.className === "meditate-button" && exerciseBtn.className === "exercise-button") {
@@ -203,7 +222,7 @@ function showCustomMessage() {
   } else {
     categoryError.classList.add('hidden');
   };
-  
+
   if (!goalInput.value) {
     error.classList.remove('hidden');
     return;
@@ -250,10 +269,10 @@ function displayPastActivities() {
     if (localStorage.length > 0) {
     cardSection.classList.add('hidden');
     activity = JSON.parse(localStorage.getItem(localStorage.key(i)));
-    pastActivitiesSection.innerHTML += 
+    pastActivitiesSection.innerHTML +=
     `<section class="list-activities">
       <div class="color-slot color-slot-${activity.category}" id="${activity.category}"></div>
-      <div class="card-activities">
+      <div class="card-activities id="cardActivities">
       <div class="category-list">${activity.category}</div>
       <div class="time-list">${activity.minutes} MIN</div>
       <div class="goal-list">${activity.description}</div>
@@ -262,5 +281,3 @@ function displayPastActivities() {
     };
   };
 };
-
-
