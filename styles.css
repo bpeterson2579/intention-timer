@@ -36,14 +36,9 @@ header {
 .past-activities {
   display: flex;
   flex-direction: column;
-<<<<<<< HEAD
   /* justify-content: flex-start; */
   /* align-content: flex-end; */
   align-items: center;
-  /* height: 10vh; */
-=======
-  align-items: flex-start;
->>>>>>> main
   width: 35vw;
   height: 98vh;
   background-color: transparent;
@@ -326,7 +321,7 @@ main {
 
 .color-slot {
   width: 0.2vw;
-  height: 1.5vh;
+  height: 2.5vh;
   background-color: white;
   border-radius: 0.08vh;
   padding-top: 2px;
