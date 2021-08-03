@@ -63,6 +63,7 @@ function preventInvalidInput(event) {
 
 function displayForm(event) {
   event.preventDefault();
+  minorHeading.innerText = 'New Activity';
   categoryIcon.classList.remove('hidden');
   specificGoal.classList.remove('hidden');
   timeEntered.classList.remove('hidden');
@@ -111,7 +112,7 @@ function startActivity(event) {
 function submitForm(event) {
   event.preventDefault();
   showCustomMessage();
-  
+
   if (!goalInput.value || !minutesInput.value || !secondsInput.value) {
       return;
   };
@@ -119,7 +120,7 @@ function submitForm(event) {
   logActivityBtn.classList.add('hidden');
   startStop.innerText = 'START';
   updateDataModel(selectedCategory);
-  
+
   categoryIcon.classList.add('hidden');
   specificGoal.classList.add('hidden');
   timeEntered.classList.add('hidden');
@@ -189,7 +190,7 @@ function changeBtn(event) {
 // Helper Functions //
 
 function showCustomMessage() {
-  
+
   if (!goalInput.value) {
     error.classList.remove('hidden');
     return;
@@ -248,4 +249,3 @@ function displayPastActivities() {
 };
 
 displayPastActivities();
-

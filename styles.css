@@ -26,7 +26,7 @@ header {
 }
 
 .activities-logged {
-  margin-left: 2vw;
+  margin-left: 6vw;
 }
 .icons {
   height: 3vh;
@@ -36,10 +36,7 @@ header {
 .past-activities {
   display: flex;
   flex-direction: column;
-  /* justify-content: flex-start; */
-  /* align-content: flex-end; */
   align-items: flex-start;
-  /* height: 10vh; */
   width: 35vw;
   height: 98vh;
   background-color: transparent;
@@ -278,7 +275,6 @@ main {
   height: 20vh;
   width: 20vh;
   border-radius: 50%;
-  /* border: 1px solid red; */
   background-color: transparent;
   color: #CBC9CF;
   font-size: 3vh;
@@ -343,4 +339,15 @@ main {
 
 .goal-list {
   margin: 1px;
+}
+
+.activities-logged-one {
+  margin-left: 7.5vw;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 35vw;
 }
