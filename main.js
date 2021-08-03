@@ -90,7 +90,7 @@ function displayCard(event) {
   displayCounter.classList.add('hidden');
   createNewActivity.classList.remove('hidden');
   promptMessage.classList.add('hidden');
-  cardSection.innerHTML += `<section class="list-activities">
+  pastActivitiesSection.innerHTML += `<section class="list-activities">
   <div class="color-slot"></div>
   <div class="card-activities">
     <div class="category-list">${newActivity.category}</div>
@@ -232,8 +232,9 @@ function chooseCategory() {
 function displayPastActivities() {
   for (var i = 0; i < localStorage.length; i++) {
     if (localStorage.length > 1) {
-    cardSection.innerHTML = "";
+    cardSection.classList.add('hidden');
     activity = JSON.parse(localStorage.getItem(localStorage.key(i)));
+    console.log(activity);
     pastActivitiesSection.innerHTML += `<section class="list-activities">
     <div class="color-slot"></div>
     <div class="card-activities">

@@ -36,11 +36,14 @@ header {
 .past-activities {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-content: flex-end;
-  flex-wrap: wrap;
+  /* justify-content: flex-start; */
+  /* align-content: flex-end; */
   align-items: flex-start;
-  height: 10vh;
+  /* height: 10vh; */
+  width: 35vw;
+  height: 98vh;
+  background-color: transparent;
+  border-left: 1px solid #46424D;
 }
 
 .past-activities-title {
@@ -166,13 +169,6 @@ main {
   flex-direction: row;
   justify-content: space-around;
   width: 45vw;
-}
-
-.past-activities {
-  width: 35vw;
-  height: 98vh;
-  background-color: transparent;
-  border-left: 2px solid #46424D;
 }
 
 .input-goals {

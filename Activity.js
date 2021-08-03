@@ -20,7 +20,7 @@ class Activity {
       var min = Math.floor(totalSec / 60);
       var sec = totalSec % 60;
       
-      if (sec === 0) {
+      if (totalSec === 0) {
         startStop.innerText = 'COMPLETE!';
         logActivityBtn.classList.remove('hidden');
         timerTimeRemaining.innerText = 'Great Job! Keep it up!';
