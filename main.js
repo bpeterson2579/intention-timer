@@ -88,9 +88,9 @@ function displayForm(event) {
   meditateBtn.classList.remove('active-meditate');
   exerciseBtn.classList.remove('active-exercise');
 
-  studyImg.src = "./assets/study.svg";
-  meditateImg.src = "./assets/meditate.svg";
-  exerciseImg.src = "./assets/exercise.svg";
+  studyImg.src = './assets/study.svg';
+  meditateImg.src = './assets/meditate.svg';
+  exerciseImg.src = './assets/exercise.svg';
 };
 
 function displayCard(event) {
@@ -154,6 +154,7 @@ function submitForm(event) {
   timerActivity.innerText = `${newActivity.description}`;
   var displayMinutes;
   var displaySeconds;
+
   if (newActivity.minutes < 10) {
       displayMinutes = '0' + newActivity.minutes;
   } else {
@@ -174,28 +175,30 @@ function submitForm(event) {
 function changeBtn(event) {
     event.preventDefault();
 
-    if (event.target.id === "study-button" || event.target.id === "studyBtn") {
-        studyImg.src = "./assets/study-active.svg";
-        meditateImg.src = "./assets/meditate.svg";
-        exerciseImg.src = "./assets/exercise.svg";
+    if (event.target.id === 'study-button' || event.target.id === 'studyBtn') {
+        studyImg.src = './assets/study-active.svg';
+        meditateImg.src = './assets/meditate.svg';
+        exerciseImg.src = './assets/exercise.svg';
         studyBtn.classList.add('active-study');
         meditateBtn.classList.remove('active-meditate');
         exerciseBtn.classList.remove('active-exercise');
         chooseCategory();
     };
-    if (event.target.id === "meditate-button" || event.target.id === "meditateBtn") {
-        meditateImg.src = "./assets/meditate-active.svg";
-        exerciseImg.src = "./assets/exercise.svg";
-        studyImg.src = "./assets/study.svg";
+
+    if (event.target.id === 'meditate-button' || event.target.id === 'meditateBtn') {
+        meditateImg.src = './assets/meditate-active.svg';
+        exerciseImg.src = './assets/exercise.svg';
+        studyImg.src = './assets/study.svg';
         meditateBtn.classList.add('active-meditate');
         studyBtn.classList.remove('active-study');
         exerciseBtn.classList.remove('active-exercise');
         chooseCategory();
     };
-    if (event.target.id === "exercise-button" || event.target.id === "exerciseBtn") {
-        exerciseImg.src = "./assets/exercise-active.svg";
-        meditateImg.src = "./assets/meditate.svg";
-        studyImg.src = "./assets/study.svg";
+
+    if (event.target.id === 'exercise-button' || event.target.id === 'exerciseBtn') {
+        exerciseImg.src = './assets/exercise-active.svg';
+        meditateImg.src = './assets/meditate.svg';
+        studyImg.src = './assets/study.svg';
         exerciseBtn.classList.add('active-exercise');
         meditateBtn.classList.remove('active-meditate');
         studyBtn.classList.remove('active-study');
@@ -211,36 +214,36 @@ function show(element) {
 
 function hide(element) {
   element.classList.add('hidden');
-}
+};
 
 function showCustomMessage() {
 
   if(studyBtn.className === "study-button" && meditateBtn.className === "meditate-button" && exerciseBtn.className === "exercise-button") {
-    categoryError.classList.remove('hidden');
+    show(categoryError);
     return;
   } else {
-    categoryError.classList.add('hidden');
+    hide(categoryError);
   };
 
   if (!goalInput.value) {
-    error.classList.remove('hidden');
+    show(error);
     return;
   } else {
-    error.classList.add('hidden');
+    hide(error);
   };
 
   if (!minutesInput.value) {
-    errorMin.classList.remove('hidden');
+    show(errorMin);
     return;
   } else {
-    errorMin.classList.add('hidden');
+    hide(errorMin);
   };
 
   if (!secondsInput.value) {
-    errorSec.classList.remove('hidden');
+    show(errorSec);
     return;
   } else {
-    errorSec.classList.add('hidden');
+    hide(errorSec);
   };
 };
 
@@ -264,10 +267,14 @@ function chooseCategory() {
 };
 
 function displayPastActivities() {
+
   for (var i = 0; i < localStorage.length; i++) {
     if (localStorage.length > 0) {
-    cardSection.classList.add('hidden');
+
+    hide(cardSection);
+
     activity = JSON.parse(localStorage.getItem(localStorage.key(i)));
+
     pastActivitiesSection.innerHTML +=
     `<section class="list-activities">
       <div class="color-slot color-slot-${activity.category}" id="${activity.category}"></div>
