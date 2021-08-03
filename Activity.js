@@ -51,7 +51,7 @@ class Activity {
   };
 
   saveToStorage() {
-    var storedName = `activity${number}`;
+    var storedName = `activity${this.id}`;
     var objectString = JSON.stringify(this);
     localStorage.setItem(storedName, objectString);
   };
