@@ -66,7 +66,7 @@ function preventInvalidInput(event) {
 
 function displayForm(event) {
   event.preventDefault();
-  
+
   selectedCategory = null;
 
   minorHeading.innerText = 'New Activity';
@@ -95,12 +95,15 @@ function displayForm(event) {
 
 function displayCard(event) {
   event.preventDefault();
+
   newActivity.markComplete();
   newActivity.saveToStorage();
-  displayCounter.classList.add('hidden');
-  createNewActivity.classList.remove('hidden');
-  promptMessage.classList.add('hidden');
-  cardSection.classList.add('hidden');
+
+  hide(displayCounter);
+  show(createNewActivity);
+  hide(promptMessage);
+  hide(cardSection);
+
   pastActivitiesSection.innerHTML +=
   `<section class="list-activities">
     <div class="color-slot color-slot-${newActivity.category}" id="${newActivity.category}"></div>
@@ -127,14 +130,15 @@ function submitForm(event) {
       return;
   };
 
-  logActivityBtn.classList.add('hidden');
+  hide(logActivityBtn);
+
   startStop.innerText = 'START';
   updateDataModel(selectedCategory);
 
-  categoryIcon.classList.add('hidden');
-  specificGoal.classList.add('hidden');
-  timeEntered.classList.add('hidden');
-  submitBtn.classList.add('hidden');
+  hide(categoryIcon);
+  hide(specificGoal);
+  hide(timeEntered);
+  hide(submitBtn);
 
   displayCounter.classList.remove('hidden');
 
@@ -155,6 +159,7 @@ function submitForm(event) {
   } else {
       displayMinutes = newActivity.minutes
   };
+
   if (newActivity.seconds < 10) {
     displaySeconds = '0' + newActivity.seconds;
   } else if (newActivity.seconds === 0) {
@@ -162,6 +167,7 @@ function submitForm(event) {
   } else {
       displaySeconds = newActivity.seconds;
   };
+
   timerTimeRemaining.innerText = `${displayMinutes}:${displaySeconds}`;
 };
 
