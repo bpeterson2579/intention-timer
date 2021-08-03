@@ -31,13 +31,15 @@ var inputSec = document.querySelector('#seconds');
 var error = document.querySelector('#error');
 var errorMin = document.querySelector('#minError');
 var errorSec = document.querySelector('#secError');
-var promtMessage = document.querySelector('#promtMessage');
+var promptMessage = document.querySelector('#promptMessage');
+var pastActivitiesSection = document.querySelector('#pastActivitiesSection');
 
 var invalidInput = ['-', '+', 'e'];
 var pastActivities = [];
 var selectedCategory = null;
 var newActivity = null;
 var number = 0;
+var activity = null;
 
 // Event listeners
 
@@ -52,6 +54,12 @@ inputMin.addEventListener('keydown', preventInvalidInput);
 inputSec.addEventListener('keydown', preventInvalidInput);
 
 //Event Handlers
+
+function preventInvalidInput(event) {
+  if (invalidInput.includes(event.key)) {
+     event.preventDefault();
+  };
+};
 
 function displayForm(event) {
   event.preventDefault();
@@ -77,11 +85,13 @@ function displayForm(event) {
 function displayCard(event) {
   event.preventDefault();
   number++;
+  newActivity.markComplete();
   newActivity.saveToStorage();
   displayCounter.classList.add('hidden');
   createNewActivity.classList.remove('hidden');
-  promtMessage.classList.add('hidden');
-  cardSection.innerHTML += `<section class="list-activities">
+  promptMessage.classList.add('hidden');
+  cardSection.classList.add('hidden');
+  pastActivitiesSection.innerHTML += `<section class="list-activities">
   <div class="color-slot"></div>
   <div class="card-activities">
     <div class="category-list">${newActivity.category}</div>
@@ -96,7 +106,6 @@ function startActivity(event) {
   startStop.innerText = 'IN PROGRESS';
   startStop.disabled = true;
   newActivity.countdown();
-  newActivity.markComplete();
 };
 
 function submitForm(event) {
@@ -107,12 +116,15 @@ function submitForm(event) {
       return;
   };
 
+  logActivityBtn.classList.add('hidden');
+  startStop.innerText = 'START';
   updateDataModel(selectedCategory);
   
   categoryIcon.classList.add('hidden');
   specificGoal.classList.add('hidden');
   timeEntered.classList.add('hidden');
   submitBtn.classList.add('hidden');
+
   displayCounter.classList.remove('hidden');
 
   if(newActivity.category === 'study') {
@@ -180,25 +192,22 @@ function showCustomMessage() {
   
   if (!goalInput.value) {
     error.classList.remove('hidden');
+    return;
   };
 
   if (!minutesInput.value) {
     errorMin.classList.remove('hidden');
+    return;
   };
 
   if (!secondsInput.value) {
     errorSec.classList.remove('hidden');
+    return;
   };
 
   if(studyBtn.className === "study-button" && meditateBtn.className === "meditate-button" && exerciseBtn.className === "exercise-button") {
     categoryError.classList.remove('hidden');
     return;
-  };
-};
-
-function preventInvalidInput(event) {
-  if (invalidInput.includes(event.key)) {
-     event.preventDefault();
   };
 };
 
@@ -221,10 +230,22 @@ function chooseCategory() {
   return selectedCategory;
 };
 
-/*
-    Iteration 5 When the user refreshes the page, The past activities are still displayed.
+function displayPastActivities() {
+  for (var i = 0; i < localStorage.length; i++) {
+    if (localStorage.length > 1) {
+    cardSection.classList.add('hidden');
+    activity = JSON.parse(localStorage.getItem(localStorage.key(i)));
+    pastActivitiesSection.innerHTML += `<section class="list-activities">
+    <div class="color-slot"></div>
+    <div class="card-activities">
+      <div class="category-list">${activity.category}</div>
+      <div class="time-list">${activity.minutes} MIN</div>
+      <div class="goal-list">${activity.description}</div>
+    </div>
+  </section>`;
+    };
+  };
+};
 
-    1. Storage the array pastActivities on the local storage
+displayPastActivities();
 
-    2. Write code to have it displayed.
-*/

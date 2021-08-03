@@ -10,7 +10,7 @@ class Activity {
 
   countdown() {
     
-    setInterval(timer, 1000);
+    var intervalSet = setInterval(timer, 1000);
     var minutes = parseInt(this.minutes);
     var seconds = parseInt(this.seconds);
     
@@ -20,15 +20,15 @@ class Activity {
       var min = Math.floor(totalSec / 60);
       var sec = totalSec % 60;
       
-      if (sec < 0) {
+      if (totalSec === 0) {
         startStop.innerText = 'COMPLETE!';
-        if (pastActivities[0].completed) {
-          logActivityBtn.classList.remove('hidden');
-        };
-        timerTimeRemaining.innerText = 'Great Job! Keep it up!'
+        logActivityBtn.classList.remove('hidden');
+        timerTimeRemaining.innerText = 'Great Job! Keep it up!';
+        clearInterval(intervalSet);
+        startStop.disabled = false;
         return;
       };
-
+      
       if (min < 10) {
         min = "0" + min;
       }else {
@@ -51,7 +51,6 @@ class Activity {
   };
 
   saveToStorage() {
-    number++;
     var storedName = `activity${number}`;
     var objectString = JSON.stringify(this);
     localStorage.setItem(storedName, objectString);
