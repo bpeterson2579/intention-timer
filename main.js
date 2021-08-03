@@ -33,6 +33,7 @@ var errorMin = document.querySelector('#minError');
 var errorSec = document.querySelector('#secError');
 var promptMessage = document.querySelector('#promptMessage');
 var pastActivitiesSection = document.querySelector('#pastActivitiesSection');
+var colorSlot = document.querySelector('.card-activities');
 
 var invalidInput = ['-', '+', 'e'];
 var pastActivities = [];
@@ -63,6 +64,7 @@ function preventInvalidInput(event) {
 
 function displayForm(event) {
   event.preventDefault();
+  minorHeading.innerText = 'New Activity';
   categoryIcon.classList.remove('hidden');
   specificGoal.classList.remove('hidden');
   timeEntered.classList.remove('hidden');
@@ -99,6 +101,7 @@ function displayCard(event) {
     <div class="goal-list">${newActivity.description}</div>
   </div>
 </section>`;
+  colorSlot.classList.add('.color-slot-study');
 };
 
 function startActivity(event) {
@@ -111,7 +114,7 @@ function startActivity(event) {
 function submitForm(event) {
   event.preventDefault();
   showCustomMessage();
-  
+
   if (!goalInput.value || !minutesInput.value || !secondsInput.value) {
       return;
   };
@@ -119,7 +122,7 @@ function submitForm(event) {
   logActivityBtn.classList.add('hidden');
   startStop.innerText = 'START';
   updateDataModel(selectedCategory);
-  
+
   categoryIcon.classList.add('hidden');
   specificGoal.classList.add('hidden');
   timeEntered.classList.add('hidden');
@@ -189,7 +192,7 @@ function changeBtn(event) {
 // Helper Functions //
 
 function showCustomMessage() {
-  
+
   if (!goalInput.value) {
     error.classList.remove('hidden');
     return;
@@ -248,4 +251,3 @@ function displayPastActivities() {
 };
 
 displayPastActivities();
-
