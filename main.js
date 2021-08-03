@@ -96,19 +96,24 @@ function displayCard(event) {
   cardSection.classList.add('hidden');
   pastActivitiesSection.innerHTML += 
   `<section class="list-activities">
-    <div class="color-slot"></div>
+    <div class="color-slot" id="${newActivity.category}"></div>
     <div class="card-activities">
     <div class="category-list">${newActivity.category}</div>
     <div class="time-list">${newActivity.minutes} MIN</div>
     <div class="goal-list">${newActivity.description}</div>
     </div>
   </section>`;
-  var colorSlot = document.querySelector('.color-slot');
+  
   if (newActivity.category === 'study') {
+    var colorSlot = document.querySelector('#study');
     colorSlot.style.backgroundColor = '#B3FD78';
-  } else if (newActivity.category === 'meditate') {
+  }; 
+  if (newActivity.category === 'meditate') {
+    var colorSlot = document.querySelector('#meditate');
     colorSlot.style.backgroundColor = '#C278FD';
-  } else if (newActivity.category === 'exercise') {
+  }; 
+  if (newActivity.category === 'exercise') {
+    var colorSlot = document.querySelector('#exercise');
     colorSlot.style.backgroundColor = '#FD8078';
   };
 };
@@ -249,20 +254,24 @@ function displayPastActivities() {
     activity = JSON.parse(localStorage.getItem(localStorage.key(i)));
     pastActivitiesSection.innerHTML += 
     `<section class="list-activities">
-      <div class="color-slot"></div>
+      <div class="color-slot" id="${activity.category}"></div>
       <div class="card-activities">
       <div class="category-list">${activity.category}</div>
       <div class="time-list">${activity.minutes} MIN</div>
       <div class="goal-list">${activity.description}</div>
       </div>
     </section>`;
-    var colorSlot = document.querySelector('.color-slot');
     if (activity.category === 'study') {
-    colorSlot.style.backgroundColor = '#B3FD78';
-    } else if (activity.category === 'meditate') {
-    colorSlot.style.backgroundColor = '#C278FD';
-    } else if (activity.category === 'exercise') {
-    colorSlot.style.backgroundColor = '#FD8078';
+      var colorSlot = document.querySelector('#study');
+      colorSlot.style.backgroundColor = '#B3FD78';
+    }; 
+    if (activity.category === 'meditate') {
+      var colorSlot = document.querySelector('#meditate');
+      colorSlot.style.backgroundColor = '#C278FD';
+    }; 
+    if (activity.category === 'exercise') {
+      var colorSlot = document.querySelector('#exercise');
+      colorSlot.style.backgroundColor = '#FD8078';
     };
     };
   };
