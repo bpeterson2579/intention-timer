@@ -1,10 +1,10 @@
-var studyBtn = document.querySelector("#study-button");
-var meditateBtn = document.querySelector("#meditate-button");
-var exerciseBtn = document.querySelector("#exercise-button");
-var goalInput = document.querySelector("#goal");
-var minutesInput = document.querySelector("#minutes");
-var secondsInput = document.querySelector("#seconds");
-var activityBtn = document.querySelector("#startActivitySection");
+var studyBtn = document.querySelector('#study-button');
+var meditateBtn = document.querySelector('#meditate-button');
+var exerciseBtn = document.querySelector('#exercise-button');
+var goalInput = document.querySelector('#goal');
+var minutesInput = document.querySelector('#minutes');
+var secondsInput = document.querySelector('#seconds');
+var activityBtn = document.querySelector('#startActivitySection');
 var submitBtn = document.querySelector('#startActivityButton');
 var buttons = document.querySelectorAll('button');
 var displayCounter = document.querySelector('#displayCounter');
@@ -218,7 +218,7 @@ function hide(element) {
 
 function showCustomMessage() {
 
-  if(studyBtn.className === "study-button" && meditateBtn.className === "meditate-button" && exerciseBtn.className === "exercise-button") {
+  if(studyBtn.className === 'study-button' && meditateBtn.className === 'meditate-button' && exerciseBtn.className === 'exercise-button') {
     show(categoryError);
     return;
   } else {
@@ -255,11 +255,11 @@ function updateDataModel(selectedCategory) {
 
 function chooseCategory() {
   for (var i = 0; i < buttons.length; i++) {
-    if (buttons[i].className === "study-button active-study") {
+    if (buttons[i].className === 'study-button active-study') {
       selectedCategory = buttons[i].name;
-    }else if (buttons[i].className === "meditate-button active-meditate") {
+    }else if (buttons[i].className === 'meditate-button active-meditate') {
         selectedCategory = buttons[i].name;
-    } else if (buttons[i].className === "exercise-button active-exercise") {
+    } else if (buttons[i].className === 'exercise-button active-exercise') {
         selectedCategory = buttons[i].name;
     };
   };
