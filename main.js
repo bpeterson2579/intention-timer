@@ -41,9 +41,8 @@ var invalidInput = ['-', '+', 'e'];
 var pastActivities = [];
 var selectedCategory = null;
 var newActivity = null;
-var number = 0;
-number =+ 20;
 var activity = null;
+
 displayPastActivities();
 
 // Event listeners
@@ -201,6 +200,8 @@ function showCustomMessage() {
   if(studyBtn.className === "study-button" && meditateBtn.className === "meditate-button" && exerciseBtn.className === "exercise-button") {
     categoryError.classList.remove('hidden');
     return;
+  } else {
+    categoryError.classList.add('hidden');
   };
   
   if (!goalInput.value) {
@@ -246,7 +247,7 @@ function chooseCategory() {
 
 function displayPastActivities() {
   for (var i = 0; i < localStorage.length; i++) {
-    if (localStorage.length > 1) {
+    if (localStorage.length > 0) {
     cardSection.classList.add('hidden');
     activity = JSON.parse(localStorage.getItem(localStorage.key(i)));
     pastActivitiesSection.innerHTML += 
