@@ -38,7 +38,7 @@ header {
   flex-direction: column;
   /* justify-content: flex-start; */
   /* align-content: flex-end; */
-  align-items: flex-start;
+  align-items: center;
   /* height: 10vh; */
   width: 35vw;
   height: 98vh;
